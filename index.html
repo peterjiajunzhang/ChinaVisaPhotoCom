@@ -54,14 +54,14 @@
         .compliance-row:nth-child(8) { animation-delay: 0.54s; }
         .compliance-row:nth-child(9) { animation-delay: 0.61s; }
         .demo-wall-img {
-            aspect-ratio: 33 / 48;
             width: 100%;
             max-width: 280px;
             margin-left: auto;
             margin-right: auto;
             height: auto;
-            object-fit: cover;
-            object-position: center top;
+            display: block;
+            object-fit: contain;
+            object-position: center center;
             border-radius: 1.25rem;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
             border: 1px solid rgba(15, 23, 42, 0.08);
@@ -189,11 +189,12 @@
             </div>
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto justify-items-center">
-                <figure class="w-full flex flex-col items-center"><img src="demos/demo-01-result.png" alt="China visa style result 1" class="demo-wall-img" width="330" height="480" decoding="async"></figure>
-                <figure class="w-full flex flex-col items-center"><img src="demos/demo-02-result.png" alt="China visa style result 2" class="demo-wall-img" width="330" height="480" decoding="async"></figure>
-                <figure class="w-full flex flex-col items-center"><img src="demos/demo-03-result.png" alt="China visa style result 3" class="demo-wall-img" width="330" height="480" decoding="async"></figure>
-                <figure class="w-full flex flex-col items-center"><img src="demos/demo-04-result.png" alt="China visa style result 4" class="demo-wall-img" width="330" height="480" decoding="async"></figure>
-                <figure class="w-full sm:col-span-2 lg:col-span-1 flex flex-col items-center"><img src="demos/demo-05-result.png" alt="China visa style result 5" class="demo-wall-img" width="330" height="480" decoding="async"></figure>
+                <figure class="w-full flex flex-col items-center"><img src="demos/demo-01-result.png" alt="China visa style result 1" class="demo-wall-img" width="420" height="560" decoding="async"></figure>
+                <figure class="w-full flex flex-col items-center"><img src="demos/demo-02-result.png" alt="China visa style result 2" class="demo-wall-img" width="420" height="560" decoding="async"></figure>
+                <figure class="w-full flex flex-col items-center"><img src="demos/demo-03-result.png" alt="China visa style result 3" class="demo-wall-img" width="420" height="560" decoding="async"></figure>
+                <figure class="w-full flex flex-col items-center"><img src="demos/demo-04-result.png" alt="China visa style result 4" class="demo-wall-img" width="420" height="560" decoding="async"></figure>
+                <figure class="w-full flex flex-col items-center"><img src="demos/demo-05-result.png" alt="China visa style result 5" class="demo-wall-img" width="420" height="560" decoding="async"></figure>
+                <figure class="w-full flex flex-col items-center"><img src="demos/demo-06-result.png" alt="China visa style result 6" class="demo-wall-img" width="420" height="560" decoding="async"></figure>
             </div>
 
             <div class="mt-10 max-w-6xl mx-auto">
@@ -206,31 +207,37 @@
                         <div class="demo-film-original-wrap">
                             <img src="demos/demo-01-original.png" alt="Original 1" class="demo-film-thumb-original" decoding="async">
                         </div>
-                        <div class="demo-film-label">Indoor portrait</div>
+                        <div class="demo-film-label">Kitchen</div>
                     </div>
                     <div class="demo-film-item--original">
                         <div class="demo-film-original-wrap">
                             <img src="demos/demo-02-original.png" alt="Original 2" class="demo-film-thumb-original" decoding="async">
                         </div>
-                        <div class="demo-film-label">Kitchen background</div>
+                        <div class="demo-film-label">Home portrait</div>
                     </div>
                     <div class="demo-film-item--original">
                         <div class="demo-film-original-wrap">
                             <img src="demos/demo-03-original.png" alt="Original 3" class="demo-film-thumb-original" decoding="async">
                         </div>
-                        <div class="demo-film-label">Outdoor + plants</div>
+                        <div class="demo-film-label">Patio</div>
                     </div>
                     <div class="demo-film-item--original">
                         <div class="demo-film-original-wrap">
                             <img src="demos/demo-04-original.png" alt="Original 4" class="demo-film-thumb-original" decoding="async">
                         </div>
-                        <div class="demo-film-label">Living room</div>
+                        <div class="demo-film-label">Casual indoor</div>
                     </div>
                     <div class="demo-film-item--original">
                         <div class="demo-film-original-wrap">
                             <img src="demos/demo-05-original.png" alt="Original 5" class="demo-film-thumb-original" decoding="async">
                         </div>
-                        <div class="demo-film-label">Street / outdoor</div>
+                        <div class="demo-film-label">Sidewalk</div>
+                    </div>
+                    <div class="demo-film-item--original">
+                        <div class="demo-film-original-wrap">
+                            <img src="demos/demo-06-original.png" alt="Original 6" class="demo-film-thumb-original" decoding="async">
+                        </div>
+                        <div class="demo-film-label">Living room</div>
                     </div>
                 </div>
             </div>
@@ -243,25 +250,25 @@
                 <div class="space-y-8 max-w-6xl mx-auto">
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
                         <figure class="w-full max-w-xs text-left">
-                            <img src="screenshots/01-home.png" alt="One-Tap China Visa ID Photo: home screen with take photo and choose from photos" class="rounded-[2rem] shadow-2xl border border-gray-200 w-full h-auto" width="390" height="844" decoding="async" loading="lazy">
+                            <img src="screenshots/01-home.png" alt="One-Tap China Visa ID Photo: home screen with take photo and choose from photos" class="rounded-[2rem] shadow-2xl border border-gray-200 w-full h-auto" width="473" height="1024" decoding="async" loading="lazy">
                             <figcaption class="mt-3 text-xs text-gray-500 px-1">Home — take or choose a photo, on-device notice</figcaption>
                         </figure>
                         <figure class="w-full max-w-xs text-left">
-                            <img src="screenshots/02-checklist.png" alt="Export checklist with China digital pixel checks" class="rounded-[2rem] shadow-2xl border border-gray-200 w-full h-auto" width="390" height="844" decoding="async" loading="lazy">
+                            <img src="screenshots/02-checklist.png" alt="Export checklist with China digital pixel checks" class="rounded-[2rem] shadow-2xl border border-gray-200 w-full h-auto" width="473" height="1024" decoding="async" loading="lazy">
                             <figcaption class="mt-3 text-xs text-gray-500 px-1">Export checklist — 420×560 window, eyes, head, JPEG size</figcaption>
                         </figure>
                         <figure class="w-full max-w-xs text-left">
-                            <img src="screenshots/03-ready.png" alt="Checklist passed, ready to use" class="rounded-[2rem] shadow-2xl border border-gray-200 w-full h-auto" width="390" height="844" decoding="async" loading="lazy">
+                            <img src="screenshots/03-ready.png" alt="Checklist passed, ready to use" class="rounded-[2rem] shadow-2xl border border-gray-200 w-full h-auto" width="473" height="1024" decoding="async" loading="lazy">
                             <figcaption class="mt-3 text-xs text-gray-500 px-1">Ready to use — preview vs full export note</figcaption>
                         </figure>
                     </div>
                     <div class="flex flex-wrap justify-center gap-6">
                         <figure class="w-full max-w-xs text-left">
-                            <img src="screenshots/04-paywall.png" alt="Unlock export paywall with benefits" class="rounded-[2rem] shadow-2xl border border-gray-200 w-full h-auto" width="390" height="844" decoding="async" loading="lazy">
+                            <img src="screenshots/04-paywall.png" alt="Unlock export paywall with benefits" class="rounded-[2rem] shadow-2xl border border-gray-200 w-full h-auto" width="473" height="1024" decoding="async" loading="lazy">
                             <figcaption class="mt-3 text-xs text-gray-500 px-1">Unlock — $1.99 per photo, on-device &amp; no subscription</figcaption>
                         </figure>
                         <figure class="w-full max-w-xs text-left">
-                            <img src="screenshots/05-exported.png" alt="Exported result with share and download actions" class="rounded-[2rem] shadow-2xl border border-gray-200 w-full h-auto" width="390" height="844" decoding="async" loading="lazy">
+                            <img src="screenshots/05-exported.png" alt="Exported result with share and download actions" class="rounded-[2rem] shadow-2xl border border-gray-200 w-full h-auto" width="473" height="1024" decoding="async" loading="lazy">
                             <figcaption class="mt-3 text-xs text-gray-500 px-1">After export — download / share, start over</figcaption>
                         </figure>
                     </div>
