@@ -54,10 +54,14 @@
         .compliance-row:nth-child(8) { animation-delay: 0.54s; }
         .compliance-row:nth-child(9) { animation-delay: 0.61s; }
         .demo-wall-img {
-            aspect-ratio: 1;
+            aspect-ratio: 33 / 48;
             width: 100%;
+            max-width: 280px;
+            margin-left: auto;
+            margin-right: auto;
             height: auto;
             object-fit: cover;
+            object-position: center top;
             border-radius: 1.25rem;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
             border: 1px solid rgba(15, 23, 42, 0.08);
@@ -65,7 +69,7 @@
         }
         .demo-film {
             display: flex;
-            gap: 14px;
+            gap: 18px;
             overflow-x: auto;
             padding: 4px 2px 10px;
             scroll-snap-type: x mandatory;
@@ -73,19 +77,31 @@
         }
         .demo-film::-webkit-scrollbar { height: 8px; }
         .demo-film::-webkit-scrollbar-thumb { background: rgba(15, 23, 42, 0.16); border-radius: 999px; }
-        .demo-film-item {
+        .demo-film-item--original {
             flex: 0 0 auto;
-            width: 148px;
             scroll-snap-align: start;
+            width: auto;
         }
-        .demo-film-thumb {
-            width: 148px;
-            height: 148px;
-            object-fit: cover;
+        /* iPhone Photos–style tile: natural aspect, letterboxed on dark “screen”, generous corner radius */
+        .demo-film-original-wrap {
+            width: min(200px, 52vw);
+            border-radius: 22px;
+            overflow: hidden;
+            background: linear-gradient(165deg, #2c2c2e 0%, #1c1c1e 40%, #000 100%);
+            box-shadow:
+                0 16px 40px rgba(0, 0, 0, 0.22),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+            padding: 4px;
+        }
+        .demo-film-thumb-original {
+            width: 100%;
+            height: auto;
+            max-height: min(340px, 58vh);
+            display: block;
+            object-fit: contain;
+            object-position: center center;
             border-radius: 18px;
-            border: 1px solid rgba(15, 23, 42, 0.10);
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.10);
-            background: #0a1628;
+            background: #000;
         }
         .demo-film-label {
             margin-top: 8px;
@@ -169,41 +185,51 @@
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center mb-14">
                 <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Any background in.<br><span class="text-brand">White-backdrop China digital</span> out.</h2>
-                <p class="text-gray-500 text-lg max-w-3xl mx-auto">Real examples: living room, kitchen, outdoors — then clean cutouts on white, ready for cropping to China’s digital photo frame.</p>
+                <p class="text-gray-500 text-lg max-w-3xl mx-auto">Real examples: living room, kitchen, outdoors — then clean cutouts on white, cropped to <strong class="text-gray-700">33×48</strong> visa proportions (same as embassy print reference).</p>
             </div>
 
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
-                <figure><img src="demos/demo-01-result.png" alt="China visa style result 1" class="demo-wall-img" width="800" height="800" decoding="async"></figure>
-                <figure><img src="demos/demo-02-result.png" alt="China visa style result 2" class="demo-wall-img" width="800" height="800" decoding="async"></figure>
-                <figure><img src="demos/demo-03-result.png" alt="China visa style result 3" class="demo-wall-img" width="800" height="800" decoding="async"></figure>
-                <figure><img src="demos/demo-04-result.png" alt="China visa style result 4" class="demo-wall-img" width="800" height="800" decoding="async"></figure>
-                <figure class="sm:col-span-2 lg:col-span-1 lg:max-w-md lg:mx-auto"><img src="demos/demo-05-result.png" alt="China visa style result 5" class="demo-wall-img" width="800" height="800" decoding="async"></figure>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto justify-items-center">
+                <figure class="w-full flex flex-col items-center"><img src="demos/demo-01-result.png" alt="China visa style result 1" class="demo-wall-img" width="330" height="480" decoding="async"></figure>
+                <figure class="w-full flex flex-col items-center"><img src="demos/demo-02-result.png" alt="China visa style result 2" class="demo-wall-img" width="330" height="480" decoding="async"></figure>
+                <figure class="w-full flex flex-col items-center"><img src="demos/demo-03-result.png" alt="China visa style result 3" class="demo-wall-img" width="330" height="480" decoding="async"></figure>
+                <figure class="w-full flex flex-col items-center"><img src="demos/demo-04-result.png" alt="China visa style result 4" class="demo-wall-img" width="330" height="480" decoding="async"></figure>
+                <figure class="w-full sm:col-span-2 lg:col-span-1 flex flex-col items-center"><img src="demos/demo-05-result.png" alt="China visa style result 5" class="demo-wall-img" width="330" height="480" decoding="async"></figure>
             </div>
 
             <div class="mt-10 max-w-6xl mx-auto">
                 <div class="flex items-center justify-between gap-4 mb-3">
-                    <p class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Originals (before)</p>
+                    <p class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Originals (before) · full aspect, Photos-style</p>
                     <p class="text-xs text-gray-400 hidden sm:block">Scroll &rarr;</p>
                 </div>
                 <div class="demo-film" aria-label="Original photo strip">
-                    <div class="demo-film-item">
-                        <img src="demos/demo-01-original.png" alt="Original 1" class="demo-film-thumb" width="296" height="296" decoding="async">
+                    <div class="demo-film-item--original">
+                        <div class="demo-film-original-wrap">
+                            <img src="demos/demo-01-original.png" alt="Original 1" class="demo-film-thumb-original" decoding="async">
+                        </div>
                         <div class="demo-film-label">Indoor portrait</div>
                     </div>
-                    <div class="demo-film-item">
-                        <img src="demos/demo-02-original.png" alt="Original 2" class="demo-film-thumb" width="296" height="296" decoding="async">
+                    <div class="demo-film-item--original">
+                        <div class="demo-film-original-wrap">
+                            <img src="demos/demo-02-original.png" alt="Original 2" class="demo-film-thumb-original" decoding="async">
+                        </div>
                         <div class="demo-film-label">Kitchen background</div>
                     </div>
-                    <div class="demo-film-item">
-                        <img src="demos/demo-03-original.png" alt="Original 3" class="demo-film-thumb" width="296" height="296" decoding="async">
+                    <div class="demo-film-item--original">
+                        <div class="demo-film-original-wrap">
+                            <img src="demos/demo-03-original.png" alt="Original 3" class="demo-film-thumb-original" decoding="async">
+                        </div>
                         <div class="demo-film-label">Outdoor + plants</div>
                     </div>
-                    <div class="demo-film-item">
-                        <img src="demos/demo-04-original.png" alt="Original 4" class="demo-film-thumb" width="296" height="296" decoding="async">
+                    <div class="demo-film-item--original">
+                        <div class="demo-film-original-wrap">
+                            <img src="demos/demo-04-original.png" alt="Original 4" class="demo-film-thumb-original" decoding="async">
+                        </div>
                         <div class="demo-film-label">Living room</div>
                     </div>
-                    <div class="demo-film-item">
-                        <img src="demos/demo-05-original.png" alt="Original 5" class="demo-film-thumb" width="296" height="296" decoding="async">
+                    <div class="demo-film-item--original">
+                        <div class="demo-film-original-wrap">
+                            <img src="demos/demo-05-original.png" alt="Original 5" class="demo-film-thumb-original" decoding="async">
+                        </div>
                         <div class="demo-film-label">Street / outdoor</div>
                     </div>
                 </div>
