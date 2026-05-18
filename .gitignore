@@ -1,4 +1,5 @@
 .DS_Store
-marketing/
 dist/
 demos/hero/
+node_modules/
+marketing/**/node_modules/
