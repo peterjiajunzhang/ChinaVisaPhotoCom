@@ -1,0 +1,12 @@
+{
+  "name": "chinavisaphoto-appstore-china-campaign",
+  "private": true,
+  "type": "module",
+  "version": "1.2.0",
+  "scripts": {
+    "export": "node export.mjs"
+  },
+  "dependencies": {
+    "playwright": "^1.51.0"
+  }
+}

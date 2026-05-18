@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=1284, initial-scale=1.0, user-scalable=no" />
+  <title>China Visa Photo - App Store campaign v1.2</title>
+  <!-- Keep visual system aligned with ChinaVisaPhotoCom/index.html -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: "#e41e2d",
+            "brand-dark": "#c41522",
+            navy: "#0a1628",
+          },
+          fontFamily: {
+            sans: [
+              "-apple-system",
+              "BlinkMacSystemFont",
+              '"SF Pro Display"',
+              '"Segoe UI"',
+              "Roboto",
+              "Helvetica",
+              "Arial",
+              "sans-serif",
+            ],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    /* Unified hero frame for slides 2-5 (export + preview); top copy must stay above this line */
+    :root {
+      /* =========================
+         LOCKED: IMAGE SLOTS
+         Do NOT change after this point
+         ========================= */
+
+      /* Slides 2-5 screenshot slot (LOCKED) */
+      --campaign-hero-width: 1024px; /* locked */
+      /* Phone screenshots from ChinaVisaPhotoCom/screenshots/ (473x1024) */
+      --campaign-hero-ar-w: 473;
+      --campaign-hero-ar-h: 1024;
+      /* Align screenshot slot to the slide's inner bottom edge (padding-bottom = 88px). */
+      --campaign-hero-bottom: 12px; /* locked */
+      --campaign-hero-height: calc(var(--campaign-hero-width) * var(--campaign-hero-ar-h) / var(--campaign-hero-ar-w));
+      --campaign-hero-top: calc(2778px - var(--campaign-hero-bottom) - var(--campaign-hero-height));
+
+      /* Slide 1: 3x2 results grid - six demos from ChinaVisaPhotoCom/index.html */
+      --s1-cols: 3;
+      --s1-rows: 2;
+      --s1-edge: 58px; /* locked: left/right/bottom */
+      --s1-grid-gap: 14px; /* locked: grid gutter (not copy spacing) */
+      --s1-tile-w: calc((1284px - 2 * var(--s1-edge) - (var(--s1-cols) - 1) * var(--s1-grid-gap)) / var(--s1-cols));
+      --s1-tile-h: calc(var(--s1-tile-w) * 560 / 420); /* match demo PNGs (420x560) */
+      --s1-pair-gap: 10px; /* original ↔ result within one grid cell */
+      --s1-original-h: calc(var(--s1-tile-w) * 0.75); /* reserve for original row (intrinsic aspect) */
+      --s1-pair-h: calc(var(--s1-tile-h) + var(--s1-pair-gap) + var(--s1-original-h));
+      --s1-photos-h: calc(var(--s1-rows) * var(--s1-pair-h) + (var(--s1-rows) - 1) * var(--s1-grid-gap));
+
+      /* =========================
+         COPY SLOTS (safe to tweak)
+         ========================= */
+      --campaign-copy-top: 77px; /* 72px padding + 5px */
+      --campaign-copy-gap: 5px;  /* distance to screenshot slot */
+      --campaign-copy-height: calc(var(--campaign-hero-top) - var(--campaign-copy-top) - var(--campaign-copy-gap));
+
+      /* Slide 1: one gutter variable per slot in .s1-top (headline-lede, lede-pills) + pill block */
+      --s1-space-headline-lede: 28px; /* h1 → lede */
+      --s1-space-lede-pills: 52px; /* lede → pill row */
+
+      /* Slide 2 (save money): card sizing + right lede slot */
+      --s2-best-card-h: 440px;  /* BEST VALUE (blue) card height */
+      --s2-rival-card-h: 310px; /* CVS / Walgreens card height (same for both) */
+      --s2-right-lede-h: 120px; /* lede slot height (above rival cards, right of BEST VALUE) */
+      --s2-grid-gap: 12px;
+
+      /* Slide 3 (We check): checklist slot height */
+      --s3-checklist-h: 360px;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 1284px;
+      height: 2778px;
+      overflow: hidden;
+      background: #ffffff;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    /* Dev preview convenience:
+       - Default keeps fixed 1284x2778 canvas for exports
+       - Add `&scroll=1` to allow scrolling the full slide in a normal browser viewport */
+    html.is-scroll,
+    html.is-scroll body {
+      width: auto;
+      height: auto;
+      overflow: auto;
+      background: #0b1220;
+    }
+    html.is-scroll [data-slide] {
+      position: relative;
+      margin: 0 auto;
+    }
+    [data-slide] {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1284px;
+      height: 2778px;
+      padding: 72px 56px 88px;
+      background: #ffffff;
+      color: #0a0a0a;
+    }
+    .gradient-hero {
+      background: radial-gradient(ellipse 120% 80% at 50% 20%, rgba(228, 30, 45, 0.14) 0%, transparent 50%),
+        linear-gradient(145deg, #0f0a0c 0%, #0a1628 45%, #0d1a2a 100%);
+    }
+    .slide--hero {
+      color: #ffffff;
+    }
+    .slide--hero .headline { color: #ffffff; }
+    .slide--hero .subline { color: rgba(255, 255, 255, 0.78); }
+    .accent {
+      color: #fda4af;
+    }
+    .headline {
+      font-size: 104px;
+      line-height: 1.04;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      text-align: center;
+      margin: 0 0 40px;
+      color: #050505;
+    }
+    .slide-1 .s1-block--headline .headline {
+      font-size: 128px;
+      line-height: 1.02;
+      margin: 0;
+    }
+    .slide-1 .s1-2x2 {
+      display: inline-block;
+      font-size: 1.22em;
+      letter-spacing: -0.04em;
+      text-shadow: 0 10px 28px rgba(228, 30, 45, 0.45);
+    }
+    .slide-1 .s1-h1-soft {
+      display: inline-block;
+      font-size: 0.88em;
+      letter-spacing: -0.03em;
+      opacity: 0.98;
+    }
+    .subline {
+      font-size: 56px;
+      line-height: 1.22;
+      font-weight: 700;
+      text-align: center;
+      margin: 0;
+      color: #1a1a1c;
+      letter-spacing: -0.02em;
+    }
+    .slide-1 .subline {
+      font-size: 52px;
+    }
+    .slide-1 .s1-block--lede .s1-subtitle {
+      font-size: 70px; /* -10% */
+      line-height: 1.03;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #ffffff;
+      margin: 0;
+    }
+    .slide-1 .s1-subtitle-nowrap {
+      white-space: nowrap;
+    }
+    .subline--top {
+      margin: 0 0 64px;
+    }
+    .slide-1 .subline--top {
+      margin: 0;
+    }
+    .slide-1 {
+      text-align: center;
+    }
+    .fineprint {
+      font-size: 34px;
+      font-weight: 600;
+      color: #6b7280;
+      line-height: 1.35;
+    }
+    .foot {
+      display: none;
+    }
+
+    .slide-1 .s1-top {
+      position: relative;
+      z-index: 1;
+      margin: 0 56px;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      /* Reserve vertical band for results + originals (top copy ignored for now) */
+      padding-bottom: calc(var(--s1-edge) + var(--s1-photos-h) + 48px);
+    }
+    /* Gutters: must not use min-height:0 (flex would shrink empty tracks to 0). Main-axis size = flex-basis. */
+    .slide-1 .s1-gutter {
+      flex-shrink: 0;
+      flex-grow: 0;
+      width: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .slide-1 .s1-gutter--headline-lede {
+      flex-basis: var(--s1-space-headline-lede);
+      height: var(--s1-space-headline-lede);
+    }
+    .slide-1 .s1-gutter--lede-pills {
+      flex-basis: var(--s1-space-lede-pills);
+      height: var(--s1-space-lede-pills);
+    }
+    .slide-1 .s1-block--headline,
+    .slide-1 .s1-block--lede,
+    .slide-1 .s1-block--pills {
+      margin: 0;
+      padding: 0;
+      flex: 0 0 auto;
+      min-height: 0;
+    }
+    .slide-1 .s1-block--pills {
+      overflow: hidden;
+    }
+
+    .s1-pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 18px 18px;
+    }
+    .s1-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3em;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 999px;
+      padding: 21px 33px; /* ~-10% total */
+      font-size: 50px; /* ~-10% total */
+      font-weight: 600;
+      color: #111827;
+      line-height: 1.1;
+    }
+    .s1-pill-ico {
+      flex: 0 0 auto;
+      width: 1.15em;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+    }
+
+    /* -- Slide 1: 3x2 grid; each cell = result (top) + original (bottom), same column as site -- */
+    .s1-photos {
+      position: absolute;
+      left: var(--s1-edge);
+      right: var(--s1-edge);
+      bottom: var(--s1-edge);
+      z-index: 2;
+    }
+    .s1-grid {
+      display: grid;
+      --gap: var(--s1-grid-gap);
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: min-content;
+      gap: var(--gap);
+      align-content: start;
+      align-items: start;
+    }
+    .s1-cell {
+      display: flex;
+      flex-direction: column;
+      gap: var(--s1-pair-gap);
+      min-width: 0;
+    }
+    /* Same 3x2 index as site: result row on top, original below */
+    .s1-original-wrap {
+      width: 100%;
+      border: none;
+      border-radius: 0;
+      overflow: visible;
+      background: transparent;
+      box-shadow: none;
+      padding: 0;
+      line-height: 0;
+      flex-shrink: 0;
+    }
+    .s1-original-wrap img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      background: transparent;
+    }
+    .s1-result {
+      width: 100%;
+      border: none;
+      border-radius: 0;
+      overflow: visible;
+      background: transparent;
+      box-shadow: none;
+      padding: 0;
+      line-height: 0;
+      flex-shrink: 0;
+    }
+    .s1-result img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    /* -- Slides 2-6: hero (fixed slot; use .slide--with-fixed-hero) -- */
+    .hero-shot {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: calc(100% - 88px);
+    }
+    .slide--with-fixed-hero .hero-shot {
+      top: auto;
+      bottom: var(--campaign-hero-bottom);
+      width: var(--campaign-hero-width);
+      z-index: 2;
+      height: var(--campaign-hero-height);
+      aspect-ratio: var(--campaign-hero-ar-w) / var(--campaign-hero-ar-h);
+    }
+    .hero-shot img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 22px;
+      box-shadow: 0 26px 78px rgba(0, 0, 0, 0.16);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+    .slide--with-fixed-hero .hero-shot img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    /* Slide 6: screenshot only — geometric center of full 1284×2778; even 56px / 72px inset via max size */
+    [data-slide="6"] {
+      padding: 0;
+    }
+    [data-slide="6"].slide--with-fixed-hero .hero-shot {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      bottom: auto;
+      z-index: 2;
+      margin: 0;
+      width: min(
+        calc(1284px - 2 * 56px),
+        calc((2778px - 2 * 72px) * var(--campaign-hero-ar-w) / var(--campaign-hero-ar-h))
+      );
+      height: auto;
+      aspect-ratio: var(--campaign-hero-ar-w) / var(--campaign-hero-ar-h);
+      max-height: calc(2778px - 2 * 72px);
+    }
+
+    /* -- Copy slot auto-fit (slides 2-5) -- */
+    [data-copy-slot] {
+      overflow: hidden;
+    }
+    [data-copy-fit] {
+      transform-origin: top center;
+      -webkit-transform-origin: top center;
+      will-change: transform;
+    }
+
+    /* -- Slide 2: privacy line + fixed hero -- */
+    .s2-head {
+      position: absolute;
+      left: 0px;
+      right: 0px;
+      top: var(--campaign-copy-top);
+      max-height: var(--campaign-copy-height);
+      overflow: hidden;
+      text-align: center;
+      z-index: 1;
+    }
+    .s2-head .headline {
+      margin: 0 0 28px;
+      font-size: 92px;
+    }
+    .s2-head .subline--top {
+      margin: 0 0 32px;
+      font-size: 44px;
+    }
+    .s2-flow {
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      max-width: 1120px;
+    }
+    .s2-step {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: rgba(255, 255, 255, 0.92);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+    .s2-arrow {
+      color: rgba(253, 164, 175, 0.92);
+      font-weight: 900;
+      font-size: 46px;
+      line-height: 1;
+      transform: translateY(-1px);
+    }
+    .s2-privacy {
+      margin: 0 auto;
+      max-width: 1120px;
+      font-size: 30px;
+      line-height: 1.38;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.88);
+      letter-spacing: -0.02em;
+    }
+    .s2-cards {
+      margin: 0 auto;
+      max-width: 1120px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      text-align: left;
+      margin-top: 14px;
+    }
+    .s2-card {
+      background: #f9fafb;
+      border: 1px solid #f3f4f6;
+      border-radius: 18px;
+      padding: 16px 16px 14px;
+      overflow: hidden;
+    }
+    .s2-card-kicker {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 10px;
+    }
+    .s2-card-ico {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(228, 30, 45, 0.14);
+      border: 1px solid rgba(253, 164, 175, 0.30);
+      color: #fda4af;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .s2-card-title {
+      margin: 0;
+      font-size: 30px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      color: #0f172a;
+    }
+    .s2-card-desc {
+      margin: 0;
+      font-size: 26px;
+      line-height: 1.28;
+      font-weight: 650;
+      color: rgba(255, 255, 255, 0.78);
+      letter-spacing: -0.01em;
+    }
+    .s2-card-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .s2-card-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 26px;
+      line-height: 1.26;
+      font-weight: 700;
+      color: #1f2937;
+      letter-spacing: -0.01em;
+    }
+    .s2-card-bullet {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.14);
+      border: 1px solid rgba(16, 185, 129, 0.28);
+      color: #fda4af;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-size: 16px;
+      line-height: 1;
+      font-weight: 900;
+    }
+
+    /* -- Slide 3: languages (same copy as index.html #languages) -- */
+    .slide-3 .headline {
+      font-size: 92px;
+      margin: 0 0 26px;
+      line-height: 1.06;
+    }
+    .s3-copy {
+      position: absolute;
+      left: 48px;
+      right: 48px;
+      top: var(--campaign-copy-top);
+      max-height: var(--campaign-copy-height);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .s3-lede {
+      font-size: 34px;
+      line-height: 1.38;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.78);
+      max-width: 1080px;
+      margin: 0 auto 34px;
+      letter-spacing: -0.015em;
+    }
+    .s3-pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 16px 18px;
+      max-width: 1120px;
+    }
+    .s3-pill {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 999px;
+      padding: 15px 23px;
+      font-size: 40px; /* -5% */
+      font-weight: 650;
+      color: #111827;
+      line-height: 1.1;
+      display: inline-flex;
+      align-items: center;
+      gap: 13px;
+    }
+    .s3-flag {
+      font-size: 1.5em; /* +50% emoji size */
+      line-height: 1;
+    }
+    /* -- Slide 4: compliance checklist (site style, shortened; no Lighting) -- */
+    .s4-top {
+      position: absolute;
+      left: 40px;
+      right: 40px;
+      top: var(--campaign-copy-top);
+      max-height: var(--campaign-copy-height);
+      overflow: hidden;
+      text-align: center;
+      z-index: 1;
+    }
+    .slide-4 .headline {
+      font-size: 92px;
+      margin: 0 0 10px;
+    }
+    .s4-tagline {
+      text-align: center;
+      font-size: 46px;
+      line-height: 1.35;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.76);
+      max-width: none;
+      margin: 0 auto 22px;
+      padding: 0 20px;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+    }
+    .s4-wrap {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    .s4-check-card {
+      width: 100%;
+      max-width: 1280px;
+      flex: 0 0 auto;
+      background: #f9fafb;
+      border: 1px solid #f3f4f6;
+      border-radius: 22px;
+      padding: 40px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      height: var(--s3-checklist-h);
+      overflow: hidden;
+    }
+    .s4-sprite {
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+    }
+    .s4-check-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px 36px;
+      overflow: hidden;
+      align-content: start;
+    }
+    .s4-row--full {
+      grid-column: 1 / -1;
+      justify-content: flex-start;
+      text-align: left;
+    }
+    .s4-row {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 30px;
+      line-height: 1.30;
+      font-weight: 600;
+      color: #1f2937;
+    }
+    .s4-row svg {
+      flex-shrink: 0;
+      width: 30px;
+      height: 30px;
+      margin-top: 6px;
+    }
+    .s4-row strong {
+      font-weight: 800;
+      color: #0f172a;
+    }
+    /* -- Slide 5: pricing (site style, shortened) -- */
+    .s5-top {
+      position: absolute;
+      left: 32px;
+      right: 32px;
+      top: var(--campaign-copy-top);
+      max-height: var(--campaign-copy-height);
+      overflow: hidden;
+      text-align: center;
+      z-index: 1;
+    }
+    .slide-5 .headline {
+      font-size: 92px;
+      margin: 0 0 10px;
+    }
+    .s5-lede {
+      text-align: center;
+      font-size: 34px;
+      line-height: 1.28;
+      font-weight: 700;
+      color: rgba(255, 255, 255, 0.78);
+      max-width: 1080px;
+      margin: 0 auto 14px;
+      padding: 0 32px;
+      letter-spacing: -0.02em;
+    }
+    .s5-grid {
+      margin-top: 6px;
+      display: grid;
+      grid-template-columns: 1.08fr 1.92fr;
+      gap: var(--s2-grid-gap);
+      align-items: stretch;
+    }
+    .s5-app {
+      background: #e41e2d;
+      color: #ffffff;
+      border-radius: 22px;
+      padding: 28px 16px 18px;
+      position: relative;
+      box-shadow: 0 22px 56px rgba(0, 113, 227, 0.38);
+      transform: scale(1.02);
+      z-index: 1;
+      min-height: var(--s2-best-card-h);
+    }
+    .s5-right {
+      display: grid;
+      grid-template-rows: var(--s2-right-lede-h) auto;
+      gap: var(--s2-grid-gap);
+      align-items: stretch;
+      min-width: 0;
+    }
+    .s5-right-lede {
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px 18px;
+      overflow: hidden;
+    }
+    .s5-right-lede .s5-lede {
+      margin: 0;
+      padding: 0;
+      max-width: none;
+      text-align: left;
+      font-size: 36px;
+      line-height: 1.25;
+      color: rgba(255, 255, 255, 0.78);
+    }
+    .s5-right-rivals {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--s2-grid-gap);
+      align-items: stretch;
+      min-width: 0;
+    }
+    .s5-badge {
+      position: absolute;
+      top: -11px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fda4af;
+      color: #0a1628;
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      padding: 7px 16px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    .s5-app-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 6px 0 14px;
+    }
+    .s5-app-head img {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      flex-shrink: 0;
+    }
+    .s5-app-name {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .s5-price-row {
+      margin-bottom: 8px;
+    }
+    .s5-price-big {
+      font-size: 52px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+    .s5-price-suf {
+      font-size: 24px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.72);
+      margin-left: 4px;
+    }
+    .s5-rival-price {
+      font-size: 48px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #d1d5db;
+      margin-bottom: 6px;
+    }
+    .s5-list {
+      list-style: none;
+      margin: 18px 0 0;
+      padding: 0;
+    }
+    .s5-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 20px;
+      line-height: 1.28;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .s5-app .s5-list li {
+      color: rgba(255, 255, 255, 0.94);
+    }
+    .s5-li-ico {
+      flex-shrink: 0;
+      margin-top: 2px;
+      font-weight: 900;
+      color: #fda4af;
+      font-size: 22px;
+      line-height: 1.2;
+    }
+    .s5-rival {
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 22px;
+      padding: 24px 14px 16px;
+      color: #9ca3af;
+      min-height: var(--s2-rival-card-h);
+    }
+    .s5-rival-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      min-height: 48px;
+    }
+    .s5-rival-ico {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .s5-rival-ico--cvs {
+      background: #fef2f2;
+    }
+    .s5-rival-ico--wag {
+      background: #f0fdf4;
+    }
+    .s5-rival-name {
+      font-size: 24px;
+      font-weight: 700;
+      color: #9ca3af;
+      letter-spacing: -0.02em;
+    }
+    .s5-rival .s5-list li {
+      color: #9ca3af;
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+    .s5-li-x {
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: #d1d5db;
+      font-weight: 800;
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Slide 1: hero + use-cases + 6 demo results (3x2, ChinaVisaPhotoCom/index.html) -->
+  <section data-slide="1" class="slide slide-1 slide--hero gradient-hero" style="display: block;">
+    <div class="s1-top">
+      <div class="s1-block s1-block--headline">
+        <h1 class="headline"><span class="s1-h1-soft">One-Tap</span><br /><span class="accent s1-2x2">China Visa ID Photos</span></h1>
+      </div>
+      <div class="s1-gutter s1-gutter--headline-lede" aria-hidden="true"></div>
+      <div class="s1-block s1-block--lede">
+        <p class="subline s1-subtitle">On-device AI, white backdrop<br /><span class="s1-subtitle-nowrap">420x560 smart crop &amp; composition</span></p>
+      </div>
+      <div class="s1-gutter s1-gutter--lede-pills" aria-hidden="true"></div>
+      <div class="s1-block s1-block--pills">
+        <div class="s1-pills" aria-label="Use cases">
+          <span class="s1-pill"><span class="s1-pill-ico" aria-hidden="true">🛂</span>China visa online forms</span>
+          <span class="s1-pill"><span class="s1-pill-ico" aria-hidden="true">📋</span>COVA / appointment flows</span>
+          <span class="s1-pill"><span class="s1-pill-ico" aria-hidden="true">📤</span>Digital uploads</span>
+          <span class="s1-pill"><span class="s1-pill-ico" aria-hidden="true">✅</span>33x48mm prints</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="s1-photos" aria-label="Before and after photos">
+      <div class="s1-grid" aria-label="Original and result pairs">
+        <div class="s1-cell">
+          <div class="s1-result"><img src="../../demos/demo-01-result.png" alt="" decoding="async" loading="eager" /></div>
+          <div class="s1-original-wrap"><img src="../../demos/demo-01-original.png" alt="" decoding="async" loading="eager" /></div>
+        </div>
+        <div class="s1-cell">
+          <div class="s1-result"><img src="../../demos/demo-02-result.png" alt="" decoding="async" loading="eager" /></div>
+          <div class="s1-original-wrap"><img src="../../demos/demo-02-original.png" alt="" decoding="async" loading="eager" /></div>
+        </div>
+        <div class="s1-cell">
+          <div class="s1-result"><img src="../../demos/demo-03-result.png" alt="" decoding="async" loading="eager" /></div>
+          <div class="s1-original-wrap"><img src="../../demos/demo-03-original.png" alt="" decoding="async" loading="eager" /></div>
+        </div>
+        <div class="s1-cell">
+          <div class="s1-result"><img src="../../demos/demo-04-result.png" alt="" decoding="async" loading="eager" /></div>
+          <div class="s1-original-wrap"><img src="../../demos/demo-04-original.png" alt="" decoding="async" loading="eager" /></div>
+        </div>
+        <div class="s1-cell">
+          <div class="s1-result"><img src="../../demos/demo-05-result.png" alt="" decoding="async" loading="eager" /></div>
+          <div class="s1-original-wrap"><img src="../../demos/demo-05-original.png" alt="" decoding="async" loading="eager" /></div>
+        </div>
+        <div class="s1-cell">
+          <div class="s1-result"><img src="../../demos/demo-06-result.png" alt="" decoding="async" loading="eager" /></div>
+          <div class="s1-original-wrap"><img src="../../demos/demo-06-original.png" alt="" decoding="async" loading="eager" /></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Slide 4: three steps - screenshots/01-home.png -->
+  <section data-slide="4" class="slide slide-2 slide--hero slide--with-fixed-hero gradient-hero" style="display: none;">
+    <div class="s2-head" data-copy-slot>
+      <div data-copy-fit>
+        <h1 class="headline"><span class="accent">Three</span> steps. <span class="accent">Private</span> by design.</h1>
+        <p class="subline subline--top" aria-label="Flow">
+          <span class="s2-flow">
+            <span class="s2-step">Pick a photo</span>
+            <span class="s2-arrow" aria-hidden="true">-&gt;</span>
+            <span class="s2-step">Auto process</span>
+            <span class="s2-arrow" aria-hidden="true">-&gt;</span>
+            <span class="s2-step">Export</span>
+          </span>
+        </p>
+        <div class="s2-cards" aria-label="Privacy highlights">
+          <div class="s2-card">
+            <div class="s2-card-kicker">
+              <div class="s2-card-ico" aria-hidden="true">⚡︎</div>
+              <h3 class="s2-card-title">Simple</h3>
+            </div>
+            <ul class="s2-card-list">
+              <li><span class="s2-card-bullet" aria-hidden="true">✓</span>No account</li>
+              <li><span class="s2-card-bullet" aria-hidden="true">✓</span>No setup</li>
+              <li><span class="s2-card-bullet" aria-hidden="true">✓</span>Complete in seconds</li>
+            </ul>
+          </div>
+          <div class="s2-card">
+            <div class="s2-card-kicker">
+              <div class="s2-card-ico" aria-hidden="true">🔒</div>
+              <h3 class="s2-card-title">Private</h3>
+            </div>
+            <ul class="s2-card-list">
+              <li><span class="s2-card-bullet" aria-hidden="true">✓</span>On-device processing</li>
+              <li><span class="s2-card-bullet" aria-hidden="true">✓</span>No cloud upload</li>
+              <li><span class="s2-card-bullet" aria-hidden="true">✓</span>No IDFA access</li>
+            </ul>
+          </div>
+          <div class="s2-card">
+            <div class="s2-card-kicker">
+              <div class="s2-card-ico" aria-hidden="true">📵</div>
+              <h3 class="s2-card-title">Zero collection</h3>
+            </div>
+            <ul class="s2-card-list">
+              <li><span class="s2-card-bullet" aria-hidden="true">✓</span>No tracking</li>
+              <li><span class="s2-card-bullet" aria-hidden="true">✓</span>Not used to train AI</li>
+              <li><span class="s2-card-bullet" aria-hidden="true">✓</span>All on your iPhone</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-shot">
+      <img src="../../screenshots/01-home.png" alt="" decoding="async" loading="eager" />
+    </div>
+  </section>
+
+  <!-- Slide 5: languages - screenshots/05-exported.png (same asset as landing "After export" tile) -->
+  <section data-slide="5" class="slide slide-3 slide--hero slide--with-fixed-hero gradient-hero" style="display: none;">
+    <div class="s3-copy" aria-label="Languages" data-copy-slot>
+      <div data-copy-fit>
+        <h1 class="headline"><span class="accent">7 languages</span> supported</h1>
+        <p class="s3-lede">Switch languages anytime in-app. We'll also match your iPhone language automatically when supported.</p>
+        <div class="s3-pills">
+          <span class="s3-pill"><span class="s3-flag">🇺🇸</span> English</span>
+          <span class="s3-pill"><span class="s3-flag">🇨🇳</span> 简体中文</span>
+          <span class="s3-pill"><span class="s3-flag">🇹🇼</span> 繁體中文</span>
+          <span class="s3-pill"><span class="s3-flag">🇪🇸</span> Español</span>
+          <span class="s3-pill"><span class="s3-flag">🇯🇵</span> 日本語</span>
+          <span class="s3-pill"><span class="s3-flag">🇩🇪</span> Deutsch</span>
+          <span class="s3-pill"><span class="s3-flag">🇫🇷</span> Français</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-shot">
+      <img src="../../screenshots/05-exported.png" alt="" decoding="async" loading="eager" />
+    </div>
+  </section>
+
+  <!-- Slide 3: checklist - screenshots/02-checklist.png -->
+  <section data-slide="3" class="slide slide-4 slide--hero slide--with-fixed-hero gradient-hero" style="display: none;">
+    <div class="s4-top" data-copy-slot>
+      <svg width="0" height="0" class="s4-sprite" aria-hidden="true" focusable="false">
+        <defs>
+          <symbol id="s4-check" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" fill="none" stroke="#10b981" stroke-width="2" />
+            <path d="m8 12 2.5 2.5 5.5-5.5" fill="none" stroke="#10b981" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+          </symbol>
+        </defs>
+      </svg>
+      <div data-copy-fit>
+        <h1 class="headline">We <span class="accent">check</span> for every export</h1>
+        <p class="s4-tagline"><span class="accent">Rules</span> from the official site - digital &amp; print.</p>
+        <div class="s4-wrap">
+          <div class="s4-check-card" aria-label="Export checks">
+            <div class="s4-check-grid">
+              <div class="s4-row">
+                <svg aria-hidden="true"><use href="#s4-check" /></svg>
+                <span><strong>Canvas</strong> - 354-420 x 472-560 px.</span>
+              </div>
+              <div class="s4-row">
+                <svg aria-hidden="true"><use href="#s4-check" /></svg>
+                <span><strong>Default</strong> - 420x560 px for clarity.</span>
+              </div>
+              <div class="s4-row">
+                <svg aria-hidden="true"><use href="#s4-check" /></svg>
+                <span><strong>JPEG size</strong> - toward 40-120 kB policy.</span>
+              </div>
+              <div class="s4-row">
+                <svg aria-hidden="true"><use href="#s4-check" /></svg>
+                <span><strong>Background</strong> - white after auto cutout.</span>
+              </div>
+              <div class="s4-row">
+                <svg aria-hidden="true"><use href="#s4-check" /></svg>
+                <span><strong>No face reshape</strong> - smart crop only.</span>
+              </div>
+              <div class="s4-row">
+                <svg aria-hidden="true"><use href="#s4-check" /></svg>
+                <span><strong>Privacy</strong> - processing on your iPhone.</span>
+              </div>
+              <div class="s4-row s4-row--full">
+                <svg aria-hidden="true"><use href="#s4-check" /></svg>
+                <span><strong>Composition rules</strong> - eye height, head &amp; face width, top-of-head and chin-to-bottom margins per official guidance (digital &amp; print), with live readouts.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-shot">
+      <img src="../../screenshots/02-checklist.png" alt="" decoding="async" loading="eager" />
+    </div>
+  </section>
+
+  <!-- Slide 2: pricing - screenshots/04-paywall.png -->
+  <section data-slide="2" class="slide slide-5 slide--hero slide--with-fixed-hero gradient-hero" style="display: none;">
+    <div class="s5-top" data-copy-slot>
+      <div data-copy-fit>
+        <h1 class="headline">Save <span class="accent">$20</span> every time.</h1>
+        <div class="s5-grid" aria-label="Price comparison">
+          <div class="s5-app">
+            <div class="s5-badge">BEST VALUE</div>
+            <div class="s5-app-head">
+              <img src="../../AppIcon.png" alt="" width="48" height="48" decoding="async" loading="eager" />
+              <span class="s5-app-name">China Visa ID Photo</span>
+            </div>
+            <div class="s5-price-row">
+              <span class="s5-price-big">$1.99</span><span class="s5-price-suf">/ photo</span>
+            </div>
+            <ul class="s5-list">
+              <li><span class="s5-li-ico" aria-hidden="true">✓</span> 420x560 embassy window</li>
+              <li><span class="s5-li-ico" aria-hidden="true">✓</span> China digital checklist</li>
+              <li><span class="s5-li-ico" aria-hidden="true">✓</span> 100% private, On-device</li>
+              <li><span class="s5-li-ico" aria-hidden="true">✓</span> Instant export, in seconds</li>
+              <li><span class="s5-li-ico" aria-hidden="true">✓</span> Retry unlimited times</li>
+              <li><span class="s5-li-ico" aria-hidden="true">✓</span> Eco-friendly</li>
+            </ul>
+          </div>
+          <div class="s5-right" aria-label="Alternatives comparison">
+            <div class="s5-right-lede" aria-label="Subtitle slot">
+              <p class="s5-lede">Why visit a studio or copy shop when your iPhone does it better?</p>
+            </div>
+            <div class="s5-right-rivals" aria-label="Alternatives">
+              <div class="s5-rival">
+                <div class="s5-rival-head">
+                  <span class="s5-rival-ico s5-rival-ico--cvs" aria-hidden="true">📷</span>
+                  <span class="s5-rival-name">Photo studio</span>
+                </div>
+                <div class="s5-rival-price">$24.99</div>
+                <ul class="s5-list">
+                  <li><span class="s5-li-x" aria-hidden="true">✕</span> Travel, wait, in-person only</li>
+                  <li><span class="s5-li-x" aria-hidden="true">✕</span> Typical ~$20-30 pricing</li>
+                  <li><span class="s5-li-x" aria-hidden="true">✕</span> Retakes cost extra $ and trips</li>
+                </ul>
+              </div>
+              <div class="s5-rival">
+                <div class="s5-rival-head">
+                  <span class="s5-rival-ico s5-rival-ico--wag" aria-hidden="true">🖨️</span>
+                  <span class="s5-rival-name">Copy &amp; print shop</span>
+                </div>
+                <div class="s5-rival-price">$19.99</div>
+                <ul class="s5-list">
+                  <li><span class="s5-li-x" aria-hidden="true">✕</span> Digital file often costs extra</li>
+                  <li><span class="s5-li-x" aria-hidden="true">✕</span> Inconsistent sizing for uploads</li>
+                  <li><span class="s5-li-x" aria-hidden="true">✕</span> Limited hours &amp; walk-in queues</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-shot">
+      <img src="../../screenshots/04-paywall.png" alt="" decoding="async" loading="eager" />
+    </div>
+  </section>
+
+  <!-- Slide 6: Saved Photos screenshot only (no copy) -->
+  <section data-slide="6" class="slide slide-6 slide--hero slide--with-fixed-hero gradient-hero" style="display: none;">
+    <div class="hero-shot">
+      <img src="../../screenshots/06-saved-photos.png" alt="" decoding="async" loading="eager" />
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      function enableScrollFromQuery() {
+        var qs = new URLSearchParams(window.location.search);
+        var v = qs.get("scroll");
+        if (v !== "1" && v !== "true" && v !== "yes") return;
+        document.documentElement.classList.add("is-scroll");
+      }
+      function showSingleSlideFromQuery() {
+        var m = /^([1-6])$/.exec(new URLSearchParams(window.location.search).get("slide") || "");
+        if (!m) return;
+        var n = m[1];
+        document.querySelectorAll("[data-slide]").forEach(function (el) {
+          el.style.display = el.getAttribute("data-slide") === n ? "block" : "none";
+        });
+      }
+
+      function fitCopySlots() {
+        document.querySelectorAll("[data-copy-slot]").forEach(function (slot) {
+          var inner = slot.querySelector("[data-copy-fit]");
+          if (!inner) return;
+
+          // Reset transform so measurements are stable.
+          inner.style.transform = "translateY(0px) scale(1)";
+          inner.style.webkitTransform = "translateY(0px) scale(1)";
+
+          var sw = slot.clientWidth || 0;
+          var sh = slot.clientHeight || 0;
+          if (!sw || !sh) return;
+
+          var r = inner.getBoundingClientRect();
+          var iw = r.width || 0;
+          var ih = r.height || 0;
+          if (!iw || !ih) return;
+
+          // Fill the slot as much as possible without overflow.
+          var s = Math.min(sw / iw, sh / ih);
+          // Avoid crazy upscales on tiny text, but still allow mild enlargement.
+          s = Math.max(0.5, Math.min(1.35, s));
+
+          var scaledH = ih * s;
+          var ty = Math.max(0, (sh - scaledH) / 2);
+
+          inner.style.transform = "translateY(" + ty + "px) scale(" + s + ")";
+          inner.style.webkitTransform = "translateY(" + ty + "px) scale(" + s + ")";
+        });
+      }
+
+      enableScrollFromQuery();
+      showSingleSlideFromQuery();
+      // Run multiple times to catch late font/layout changes.
+      function runFit() {
+        fitCopySlots();
+        requestAnimationFrame(fitCopySlots);
+        setTimeout(fitCopySlots, 50);
+        setTimeout(fitCopySlots, 250);
+      }
+      window.addEventListener("resize", runFit);
+      window.addEventListener("load", runFit);
+      runFit();
+    })();
+  </script>
+</body>
+</html>

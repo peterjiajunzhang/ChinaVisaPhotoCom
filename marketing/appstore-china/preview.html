@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>China Visa Photo — Campaign preview (all slides)</title>
+  <style>
+    :root {
+      --slide-w: 1284;
+      --slide-h: 2778;
+      /* 六列等分；窄屏可横向滚动整行 */
+      --cell-w: min(220px, calc((100vw - 56px) / 6 - 10px));
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 20px 12px 32px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #0f172a;
+      color: #e2e8f0;
+    }
+    h1 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 0 0 8px;
+      letter-spacing: -0.02em;
+    }
+    p.note {
+      margin: 0 0 16px;
+      font-size: 0.85rem;
+      color: #94a3b8;
+      line-height: 1.45;
+      max-width: 56rem;
+    }
+    /* 一行六张；campaign.html 里 html/body 固定 1284×2778，必须用缩放才能在小框里看全图 */
+    .row {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: visible;
+      padding: 8px 4px 16px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .cell {
+      flex: 0 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #64748b;
+      white-space: nowrap;
+    }
+    .scale-wrap {
+      width: var(--cell-w);
+      height: calc(var(--cell-w) * var(--slide-h) / var(--slide-w));
+      overflow: hidden;
+      border-radius: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: #020617;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+      position: relative;
+    }
+    .scale-wrap iframe {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 1284px;
+      height: 2778px;
+      border: 0;
+      margin: 0;
+      padding: 0;
+      transform-origin: 0 0;
+      -webkit-transform-origin: 0 0;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>App Store campaign — live preview</h1>
+  <p class="note">
+    <code>campaign.html</code> 按导出尺寸固定为 1284×2778，不能直接塞进窄 iframe。这里用「固定尺寸 + <code>transform: scale</code> + 裁切框」缩成六列同一行，可看到<strong>完整 slide</strong>。屏宽不够时<strong>左右滑动</strong>这一行即可。改完 campaign 后<strong>整页刷新</strong>本预览；加载时会为 iframe 追加时间参数，避免沿用缓存里的旧 HTML。单独打开 <code>campaign.html</code> 时可用强制刷新（macOS：⌘⇧R）。定稿后在目录运行 <code>npm run export</code> 出 PNG。
+  </p>
+  <div class="row" aria-label="Six slides in one row">
+    <div class="cell">
+      <span class="label">Slide 1</span>
+      <div class="scale-wrap"><iframe data-campaign="campaign.html?slide=1" title="Slide 1" loading="eager"></iframe></div>
+    </div>
+    <div class="cell">
+      <span class="label">Slide 2</span>
+      <div class="scale-wrap"><iframe data-campaign="campaign.html?slide=2" title="Slide 2" loading="lazy"></iframe></div>
+    </div>
+    <div class="cell">
+      <span class="label">Slide 3</span>
+      <div class="scale-wrap"><iframe data-campaign="campaign.html?slide=3" title="Slide 3" loading="lazy"></iframe></div>
+    </div>
+    <div class="cell">
+      <span class="label">Slide 4</span>
+      <div class="scale-wrap"><iframe data-campaign="campaign.html?slide=4" title="Slide 4" loading="lazy"></iframe></div>
+    </div>
+    <div class="cell">
+      <span class="label">Slide 5</span>
+      <div class="scale-wrap"><iframe data-campaign="campaign.html?slide=5" title="Slide 5" loading="lazy"></iframe></div>
+    </div>
+    <div class="cell">
+      <span class="label">Slide 6</span>
+      <div class="scale-wrap"><iframe data-campaign="campaign.html?slide=6" title="Slide 6" loading="lazy"></iframe></div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var bust = Date.now();
+      document.querySelectorAll(".scale-wrap iframe[data-campaign]").forEach(function (ifr) {
+        var base = ifr.getAttribute("data-campaign");
+        if (base) ifr.src = base + (base.indexOf("?") >= 0 ? "&" : "?") + "_=" + bust;
+      });
+      function fit() {
+        document.querySelectorAll(".scale-wrap").forEach(function (wrap) {
+          var s = wrap.clientWidth / 1284;
+          if (!s || !isFinite(s)) return;
+          var ifr = wrap.querySelector("iframe");
+          if (!ifr) return;
+          ifr.style.transform = "scale(" + s + ")";
+          ifr.style.webkitTransform = "scale(" + s + ")";
+        });
+      }
+      window.addEventListener("resize", fit);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(fit);
+      window.addEventListener("load", fit);
+      fit();
+      requestAnimationFrame(fit);
+    })();
+  </script>
+</body>
+</html>
