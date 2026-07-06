@@ -1,13 +1,13 @@
 # ChinaVisaPhotoCom — marketing site
 
-GitHub Pages: **https://peterjiajunzhang.github.io/ChinaVisaPhotoCom/**
+Live site: **https://china.visaphoto1tap.com/**
 
 | Path | Purpose |
 |------|---------|
 | `index.html` | Landing; App Store CTA → `https://apps.apple.com/app/id6769270493` |
 | `privacy.html` | Privacy policy (linked from App Store Connect) |
 | `sitemap.xml` / `robots.txt` | SEO |
-| `marketing/xiaohongshu-china/` | Xiaohongshu post previews & export scripts |
+| `VisaPhotoApps/Marketing/China/xiaohongshu/` | Xiaohongshu post previews & export scripts |
 
 **SEO checklist:** [VisaPhotoApps/docs/seo-launch-checklist.md](https://github.com/peterjiajunzhang/VisaPhotoApps/blob/main/docs/seo-launch-checklist.md)
 
