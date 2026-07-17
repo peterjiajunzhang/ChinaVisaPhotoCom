@@ -142,6 +142,73 @@
             font-weight: 700;
             color: rgba(15, 23, 42, 0.55);
         }
+        /* Hero before -> after visual */
+        .hero-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(8px, 2vw, 20px);
+        }
+        @media (min-width: 768px) { .hero-visual { justify-content: flex-end; } }
+        /* Before: raw everyday photo (snapshot look) */
+        .hero-before {
+            position: relative;
+            flex: 0 0 auto;
+            width: clamp(140px, 36vw, 216px);
+            transform: rotate(-4deg);
+        }
+        .hero-before img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 16px;
+            background: #fff;
+            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+        }
+        /* Animated arrow */
+        @keyframes heroArrowNudge {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(5px); }
+        }
+        .hero-arrow {
+            flex: 0 0 auto;
+            color: #22d3ee;
+            animation: heroArrowNudge 1.6s ease-in-out infinite;
+        }
+        .hero-arrow svg { width: clamp(24px, 5vw, 34px); height: clamp(24px, 5vw, 34px); }
+        /* After: real app screenshot (status bar baked in) inside a device bezel */
+        .hero-after { position: relative; flex: 0 0 auto; }
+        .hero-phone {
+            width: clamp(170px, 44vw, 252px);
+            border-radius: 40px;
+            padding: 8px;
+            background: linear-gradient(165deg, #2c2c2e 0%, #1c1c1e 40%, #000 100%);
+            box-shadow:
+                0 30px 60px -12px rgba(0, 0, 0, 0.5),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+        }
+        .hero-phone img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 32px;
+            background: #fff;
+        }
+        /* Before/After pills */
+        .hero-pill {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            padding: 3px 8px;
+            border-radius: 999px;
+            background: rgba(10, 22, 40, 0.55);
+            color: #fff;
+            backdrop-filter: blur(4px);
+        }
     </style>
 </head>
 <body class="bg-white text-gray-900 font-sans antialiased">
@@ -206,8 +273,10 @@
     </nav>
 
     <section class="gradient-hero text-white overflow-hidden">
-        <div class="max-w-6xl mx-auto px-6 py-20 md:py-32">
-            <div class="max-w-3xl mx-auto text-center">
+        <div class="max-w-6xl mx-auto px-6 py-16 md:py-24">
+            <div class="grid md:grid-cols-2 gap-12 md:gap-8 items-center">
+                <!-- Copy -->
+                <div class="text-center md:text-left">
                 <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur rounded-full px-4 py-1.5 text-sm mb-8">
                     <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i>
                     <span class="text-gray-200">100% on-device — auto cutout &amp; export on your iPhone</span>
@@ -229,6 +298,23 @@
                         Open in App Store
                     </a>
                     <span class="text-gray-400 text-sm">iOS 17+ &middot; iPhone</span>
+                </div>
+                </div>
+
+                <!-- Product visual: your everyday photo -> ready-for-visa, in the app -->
+                <div class="hero-visual">
+                    <figure class="hero-before">
+                        <img src="appstore/before-original.png" width="1090" height="1145" decoding="async" alt="An everyday photo with a cluttered background, before processing">
+                        <figcaption class="hero-pill">Before</figcaption>
+                    </figure>
+                    <div class="hero-arrow" aria-hidden="true">
+                        <i data-lucide="arrow-right"></i>
+                    </div>
+                    <figure class="hero-after">
+                        <div class="hero-phone">
+                            <img src="appstore/after-result.png" width="1090" height="1700" decoding="async" alt="The same photo in the China Visa ID Photo 1-Tap app: background removed, cropped, compliance checklist passed, marked Ready to use">
+                        </div>
+                    </figure>
                 </div>
             </div>
         </div>
