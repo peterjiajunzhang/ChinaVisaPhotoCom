@@ -142,29 +142,15 @@
             font-weight: 700;
             color: rgba(15, 23, 42, 0.55);
         }
-        /* Hero before -> after visual */
+        /* Hero before -> after visual: two matching device screens, same treatment */
         .hero-visual {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: clamp(8px, 2vw, 20px);
+            gap: clamp(6px, 1.5vw, 16px);
         }
         @media (min-width: 768px) { .hero-visual { justify-content: flex-end; } }
-        /* Before: raw everyday photo (snapshot look) */
-        .hero-before {
-            position: relative;
-            flex: 0 0 auto;
-            width: clamp(140px, 36vw, 216px);
-            transform: rotate(-4deg);
-        }
-        .hero-before img {
-            width: 100%;
-            height: auto;
-            display: block;
-            border-radius: 16px;
-            background: #fff;
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
-        }
+        .hero-before { position: relative; flex: 0 0 auto; }
         /* Animated arrow */
         @keyframes heroArrowNudge {
             0%, 100% { transform: translateX(0); }
@@ -175,13 +161,13 @@
             color: #22d3ee;
             animation: heroArrowNudge 1.6s ease-in-out infinite;
         }
-        .hero-arrow svg { width: clamp(24px, 5vw, 34px); height: clamp(24px, 5vw, 34px); }
-        /* After: real app screenshot (status bar baked in) inside a device bezel */
+        .hero-arrow svg { width: clamp(20px, 4vw, 30px); height: clamp(20px, 4vw, 30px); }
+        /* Both before and after use the same device-screen treatment */
         .hero-after { position: relative; flex: 0 0 auto; }
         .hero-phone {
-            width: clamp(170px, 44vw, 252px);
-            border-radius: 40px;
-            padding: 8px;
+            width: clamp(150px, 38vw, 220px);
+            border-radius: 32px;
+            padding: 6px;
             background: linear-gradient(165deg, #2c2c2e 0%, #1c1c1e 40%, #000 100%);
             box-shadow:
                 0 30px 60px -12px rgba(0, 0, 0, 0.5),
@@ -191,7 +177,7 @@
             width: 100%;
             height: auto;
             display: block;
-            border-radius: 32px;
+            border-radius: 26px;
             background: #fff;
         }
         /* Before/After pills */
@@ -209,6 +195,18 @@
             color: #fff;
             backdrop-filter: blur(4px);
         }
+        /* Demo wall: single-row scrollable results strip */
+        .demo-wall-row {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 4px 2px 14px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+        .demo-wall-row::-webkit-scrollbar { height: 8px; }
+        .demo-wall-row::-webkit-scrollbar-thumb { background: rgba(15, 23, 42, 0.16); border-radius: 999px; }
+        .demo-wall-item { flex: 0 0 auto; scroll-snap-align: start; width: min(220px, 56vw); }
     </style>
 </head>
 <body class="bg-white text-gray-900 font-sans antialiased">
@@ -302,18 +300,24 @@
                 <p class="text-gray-500 text-sm mt-3">$1.99 per photo &middot; no subscription &middot; free unlimited retries</p>
                 </div>
 
-                <!-- Product visual: your everyday photo -> ready-for-visa, in the app -->
+                <!-- Product visual: two matching real app screens, same person -->
                 <div class="hero-visual">
+                    <!-- Before: the app's own "Original" screen, full raw device screenshot -->
                     <figure class="hero-before">
-                        <img src="appstore/before-original.png" width="1090" height="1145" decoding="async" alt="An everyday photo with a cluttered background, before processing">
-                        <figcaption class="hero-pill">Before</figcaption>
+                        <div class="hero-phone">
+                            <img src="appstore/before-original.png" width="1170" height="2532" decoding="async" alt="The China Visa ID Photo 1-Tap app showing the Original photo screen with a crop and remove background button">
+                        </div>
                     </figure>
+
+                    <!-- Arrow -->
                     <div class="hero-arrow" aria-hidden="true">
                         <i data-lucide="arrow-right"></i>
                     </div>
+
+                    <!-- After: the same person, in the app — background removed, cropped, auto-checked -->
                     <figure class="hero-after">
                         <div class="hero-phone">
-                            <img src="appstore/after-result.png" width="1090" height="1700" decoding="async" alt="The same photo in the China Visa ID Photo 1-Tap app: background removed, cropped, compliance checklist passed, marked Ready to use">
+                            <img src="appstore/after-result.png" width="1170" height="2532" decoding="async" alt="The same photo in the China Visa ID Photo 1-Tap app: background removed, cropped, compliance checklist passed, marked Ready to use">
                         </div>
                     </figure>
                 </div>
@@ -349,13 +353,13 @@
                 <p class="text-gray-500 text-lg max-w-3xl mx-auto">Real examples: living room, kitchen, outdoors — then clean cutouts on white, cropped to <strong class="text-gray-700">33×48</strong> visa proportions (same as embassy print reference).</p>
             </div>
 
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto justify-items-center">
-                <figure class="w-full flex flex-col items-center"><img src="demos/demo-01-result.png" alt="China visa style result 1" class="demo-wall-img" width="420" height="560" decoding="async"></figure>
-                <figure class="w-full flex flex-col items-center"><img src="demos/demo-02-result.png" alt="China visa style result 2" class="demo-wall-img" width="420" height="560" decoding="async"></figure>
-                <figure class="w-full flex flex-col items-center"><img src="demos/demo-03-result.png" alt="China visa style result 3" class="demo-wall-img" width="420" height="560" decoding="async"></figure>
-                <figure class="w-full flex flex-col items-center"><img src="demos/demo-04-result.png" alt="China visa style result 4" class="demo-wall-img" width="420" height="560" decoding="async"></figure>
-                <figure class="w-full flex flex-col items-center"><img src="demos/demo-05-result.png" alt="China visa style result 5" class="demo-wall-img" width="420" height="560" decoding="async"></figure>
-                <figure class="w-full flex flex-col items-center"><img src="demos/demo-06-result.png" alt="China visa style result 6" class="demo-wall-img" width="420" height="560" decoding="async"></figure>
+            <div class="demo-wall-row" aria-label="Result photo row">
+                <figure class="demo-wall-item"><img src="demos/demo-01-result.png" alt="China visa style result 1" class="demo-wall-img" width="420" height="560" decoding="async"></figure>
+                <figure class="demo-wall-item"><img src="demos/demo-02-result.png" alt="China visa style result 2" class="demo-wall-img" width="420" height="560" decoding="async"></figure>
+                <figure class="demo-wall-item"><img src="demos/demo-03-result.png" alt="China visa style result 3" class="demo-wall-img" width="420" height="560" decoding="async"></figure>
+                <figure class="demo-wall-item"><img src="demos/demo-04-result.png" alt="China visa style result 4" class="demo-wall-img" width="420" height="560" decoding="async"></figure>
+                <figure class="demo-wall-item"><img src="demos/demo-05-result.png" alt="China visa style result 5" class="demo-wall-img" width="420" height="560" decoding="async"></figure>
+                <figure class="demo-wall-item"><img src="demos/demo-06-result.png" alt="China visa style result 6" class="demo-wall-img" width="420" height="560" decoding="async"></figure>
             </div>
 
             <div class="mt-10 max-w-6xl mx-auto">
