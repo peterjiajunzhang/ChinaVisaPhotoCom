@@ -16,4 +16,4 @@ const siteConfig = {
     }
 };
 
-module.exports = { content: ['./index.html'], ...siteConfig };
+module.exports = { content: ['./index.html', './privacy.html'], ...siteConfig };

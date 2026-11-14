@@ -24,9 +24,9 @@ Open **`VisaPhotoApps/README.md`** for full workstation setup.
 
 ## Static CSS, icons and images
 
-The homepage no longer loads Tailwind or Lucide at runtime. The only third-party script left is the Cloudflare Web Analytics beacon.
+The homepage and privacy policy no longer load Tailwind or Lucide at runtime. The only third-party script left is the Cloudflare Web Analytics beacon.
 
-- **CSS**: `assets/tailwind.css` is prebuilt with Tailwind CSS v3.4.17 from `index.html`, using `tailwind.config.cjs` (the theme that used to be inline in the page) and `assets/tailwind.input.css`. After changing any class in `index.html`, rebuild it and commit the output:
+- **CSS**: `assets/tailwind.css` is prebuilt with Tailwind CSS v3.4.17 from `index.html` and `privacy.html`, using `tailwind.config.cjs` (the theme that used to be inline in the page) and `assets/tailwind.input.css`. After changing any class in `index.html` or `privacy.html`, rebuild it and commit the output:
 
   ```bash
   npx tailwindcss@3.4.17 -c tailwind.config.cjs -i assets/tailwind.input.css -o assets/tailwind.css --minify

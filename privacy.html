@@ -20,24 +20,8 @@
     <meta name="twitter:title" content="Privacy Policy — China Visa Photo">
     <meta name="twitter:description" content="Privacy Policy for the China Visa Photo iOS app. On-device processing for your visa photos — we do not collect your images.">
     <meta name="twitter:image" content="https://china.visaphoto1tap.com/AppIcon.png">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: '#e41e2d',
-                        'brand-dark': '#c41522',
-                        navy: '#0a1628',
-                    },
-                    fontFamily: {
-                        sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
+    <!-- Icons: inline SVG from Lucide (https://lucide.dev), ISC License, see assets/licenses/lucide.txt -->
+    <link rel="stylesheet" href="assets/tailwind.css">
 </head>
 <body class="bg-white text-gray-900 font-sans antialiased">
 
@@ -48,7 +32,7 @@
                 <span class="font-semibold text-gray-900 tracking-tight">China Visa Photo</span>
             </a>
             <a href="index.html" class="text-sm text-gray-500 hover:text-gray-900 transition flex items-center gap-1">
-                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 lucide lucide-arrow-left" aria-hidden="true" focusable="false"><path d="m12 19-7-7 7-7"></path><path d="M19 12H5"></path></svg>
                 Back to home
             </a>
         </div>
@@ -64,7 +48,7 @@
 
         <div class="bg-red-50 border border-red-100 rounded-2xl p-6 md:p-8 mb-12">
             <div class="flex items-start gap-3 mb-4">
-                <i data-lucide="shield-check" class="w-6 h-6 text-brand flex-shrink-0 mt-0.5"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-brand flex-shrink-0 mt-0.5 lucide lucide-shield-check" aria-hidden="true" focusable="false"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg>
                 <h2 class="text-lg font-semibold">The short version</h2>
             </div>
             <p class="text-gray-600 leading-relaxed">
@@ -76,26 +60,26 @@
 
             <section>
                 <h2 class="text-xl font-semibold mb-3 flex items-center gap-2">
-                    <i data-lucide="database" class="w-5 h-5 text-brand"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-brand lucide lucide-database" aria-hidden="true" focusable="false"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M3 5V19A9 3 0 0 0 21 19V5"></path><path d="M3 12A9 3 0 0 0 21 12"></path></svg>
                     Data collection
                 </h2>
                 <div class="text-gray-600 leading-relaxed space-y-3">
                     <p><strong>We do not operate a photo-upload service for editing.</strong> Core image work (segmentation, white background composition, cropping, and checklist measurements) runs on-device. Specifically:</p>
                     <ul class="space-y-2 ml-1">
                         <li class="flex items-start gap-3">
-                            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-1"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-1 lucide lucide-check-circle-2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"></circle><path d="m16 9-5.5 5.5L8 12"></path></svg>
                             <span><strong>No images sent to our servers for processing.</strong> Face-related analysis uses Apple’s on-device Vision APIs; we do not upload your pictures to our own backend to perform cutout or crop.</span>
                         </li>
                         <li class="flex items-start gap-3">
-                            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-1"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-1 lucide lucide-check-circle-2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"></circle><path d="m16 9-5.5 5.5L8 12"></path></svg>
                             <span><strong>No third-party analytics or ad SDKs</strong> in the app for our own tracking or profiling.</span>
                         </li>
                         <li class="flex items-start gap-3">
-                            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-1"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-1 lucide lucide-check-circle-2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"></circle><path d="m16 9-5.5 5.5L8 12"></path></svg>
                             <span><strong>No account required</strong> to use the app’s editing features.</span>
                         </li>
                         <li class="flex items-start gap-3">
-                            <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-1"></i>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-1 lucide lucide-check-circle-2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"></circle><path d="m16 9-5.5 5.5L8 12"></path></svg>
                             <span><strong>No network required</strong> for the core image pipeline — you can pick a photo and preview without internet; purchasing an export uses Apple’s network.</span>
                         </li>
                     </ul>
@@ -106,7 +90,7 @@
 
             <section>
                 <h2 class="text-xl font-semibold mb-3 flex items-center gap-2">
-                    <i data-lucide="image" class="w-5 h-5 text-brand"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-brand lucide lucide-image" aria-hidden="true" focusable="false"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"></path></svg>
                     Photos &amp; biometric-related processing
                 </h2>
                 <div class="text-gray-600 leading-relaxed space-y-3">
@@ -121,7 +105,7 @@
 
             <section>
                 <h2 class="text-xl font-semibold mb-3 flex items-center gap-2">
-                    <i data-lucide="upload-cloud" class="w-5 h-5 text-brand"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-brand lucide lucide-upload-cloud" aria-hidden="true" focusable="false"><path d="M12 13v8"></path><path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path><path d="m8 17 4-4 4 4"></path></svg>
                     When you upload to an embassy or portal
                 </h2>
                 <p class="text-gray-600 leading-relaxed">
@@ -133,7 +117,7 @@
 
             <section>
                 <h2 class="text-xl font-semibold mb-3 flex items-center gap-2">
-                    <i data-lucide="credit-card" class="w-5 h-5 text-brand"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-brand lucide lucide-credit-card" aria-hidden="true" focusable="false"><rect width="20" height="14" x="2" y="5" rx="2"></rect><line x1="2" x2="22" y1="10" y2="10"></line><path d="M6 14h2"></path></svg>
                     In-app purchases
                 </h2>
                 <p class="text-gray-600 leading-relaxed">
@@ -145,7 +129,7 @@
 
             <section>
                 <h2 class="text-xl font-semibold mb-3 flex items-center gap-2">
-                    <i data-lucide="blocks" class="w-5 h-5 text-brand"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-brand lucide lucide-blocks" aria-hidden="true" focusable="false"><path d="M10 22V7a1 1 0 0 0-1-1H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-5a1 1 0 0 0-1-1H2"></path><rect x="14" y="2" width="8" height="8" rx="1"></rect></svg>
                     Third-party services
                 </h2>
                 <p class="text-gray-600 leading-relaxed">
@@ -157,7 +141,7 @@
 
             <section>
                 <h2 class="text-xl font-semibold mb-3 flex items-center gap-2">
-                    <i data-lucide="baby" class="w-5 h-5 text-brand"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-brand lucide lucide-baby" aria-hidden="true" focusable="false"><path d="M10 16c.5.3 1.2.5 2 .5s1.5-.2 2-.5"></path><path d="M15 12h.01"></path><path d="M19.38 6.813A9 9 0 0 1 20.8 10.2a2 2 0 0 1 0 3.6 9 9 0 0 1-17.6 0 2 2 0 0 1 0-3.6A9 9 0 0 1 12 3c2 0 3.5 1.1 3.5 2.5s-.9 2.5-2 2.5c-.8 0-1.5-.4-1.5-1"></path><path d="M9 12h.01"></path></svg>
                     Children’s privacy
                 </h2>
                 <p class="text-gray-600 leading-relaxed">
@@ -169,7 +153,7 @@
 
             <section>
                 <h2 class="text-xl font-semibold mb-3 flex items-center gap-2">
-                    <i data-lucide="refresh-cw" class="w-5 h-5 text-brand"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-brand lucide lucide-refresh-cw" aria-hidden="true" focusable="false"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"></path><path d="M21 3v5h-5"></path><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"></path><path d="M8 16H3v5"></path></svg>
                     Changes to this policy
                 </h2>
                 <p class="text-gray-600 leading-relaxed">
@@ -181,7 +165,7 @@
 
             <section>
                 <h2 class="text-xl font-semibold mb-3 flex items-center gap-2">
-                    <i data-lucide="mail" class="w-5 h-5 text-brand"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-brand lucide lucide-mail" aria-hidden="true" focusable="false"><path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path><rect x="2" y="4" width="20" height="16" rx="2"></rect></svg>
                     Contact
                 </h2>
                 <p class="text-gray-600 leading-relaxed">
@@ -207,6 +191,5 @@
         </div>
     </footer>
 
-    <script>lucide.createIcons();</script>
 </body>
 </html>
