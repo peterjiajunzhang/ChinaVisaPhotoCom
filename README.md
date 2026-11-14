@@ -21,3 +21,17 @@ git clone https://github.com/peterjiajunzhang/VisaPhotoApps.git
 ```
 
 Open **`VisaPhotoApps/README.md`** for full workstation setup.
+
+## Static CSS, icons and images
+
+The homepage no longer loads Tailwind or Lucide at runtime. The only third-party script left is the Cloudflare Web Analytics beacon.
+
+- **CSS**: `assets/tailwind.css` is prebuilt with Tailwind CSS v3.4.17 from `index.html`, using `tailwind.config.cjs` (the theme that used to be inline in the page) and `assets/tailwind.input.css`. After changing any class in `index.html`, rebuild it and commit the output:
+
+  ```bash
+  npx tailwindcss@3.4.17 -c tailwind.config.cjs -i assets/tailwind.input.css -o assets/tailwind.css --minify
+  ```
+
+- **Icons**: Lucide icons are inline `<svg>` in `index.html`. Licence: `assets/licenses/lucide.txt` (ISC).
+- **App icons**: `assets/icons/*.webp` are resized copies of each app's `AppIcon.png`, the same files the US site uses; see `assets/icons/provenance.json`. `AppIcon.png` stays as the favicon and social image.
+- **Images**: PNG or JPG files over about 300 kB have a WebP copy next to them, and the page uses the WebP. The originals stay in the repo. Images below the fold use `loading="lazy"` and have their real `width`/`height`.

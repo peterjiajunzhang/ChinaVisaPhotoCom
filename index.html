@@ -38,25 +38,6 @@
   "downloadUrl": "https://apps.apple.com/app/id6769270493"
 }
     </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: '#e41e2d',
-                        'brand-dark': '#c41522',
-                        navy: '#0a1628',
-                        'china-ink': '#1a0a0c',
-                    },
-                    fontFamily: {
-                        sans: ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Display"', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
-                    },
-                }
-            }
-        }
-    </script>
     <style>
         .gradient-hero {
             background: radial-gradient(ellipse 120% 80% at 50% 20%, rgba(228, 30, 45, 0.12) 0%, transparent 50%),
@@ -209,13 +190,15 @@
         .demo-wall-item { flex: 0 0 auto; scroll-snap-align: start; width: min(220px, 56vw); }
     </style>
 <!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "6d799a06bd8c4f50939e7fc12abf500d"}'></script><!-- End Cloudflare Web Analytics -->
+<!-- Icons: inline SVG from Lucide (https://lucide.dev), ISC License, see assets/licenses/lucide.txt -->
+<link rel="stylesheet" href="assets/tailwind.css">
 </head>
 <body class="bg-white text-gray-900 font-sans antialiased">
 
     <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-100">
         <div class="max-w-6xl mx-auto px-6 h-14 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <img src="AppIcon.png" alt="China Visa Photo" class="w-8 h-8 rounded-lg" width="1024" height="1024" decoding="async">
+                <img src="assets/icons/china.webp" alt="China Visa Photo" class="w-8 h-8 rounded-lg" width="160" height="160" decoding="async">
                 <span class="font-semibold text-gray-900 tracking-tight">China Visa Photo</span>
             </div>
             <div class="flex items-center gap-6 text-sm">
@@ -227,33 +210,33 @@
                 <a href="#pricing" class="text-gray-500 hover:text-gray-900 transition hidden sm:block">Pricing</a>
                 <div class="relative">
             <button type="button" id="app-switcher-btn" aria-haspopup="true" aria-expanded="false" aria-label="Other visa photo apps" class="p-2 -m-2 rounded-lg text-gray-500 hover:text-gray-900 hover:bg-gray-100 transition">
-                <i data-lucide="menu" class="w-5 h-5"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 lucide lucide-menu" aria-hidden="true" focusable="false"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg>
             </button>
             <div id="app-switcher-menu" class="hidden fixed right-4 top-16 w-72 max-w-[calc(100vw-2rem)] bg-white rounded-2xl shadow-2xl border border-gray-100 py-2 z-50 text-left">
                 <p class="px-4 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider">Our visa photo apps</p>
             <a href="https://us.visaphoto1tap.com/" class="flex items-center gap-3 px-4 py-2.5 hover:bg-gray-50 transition">
-                <img src="https://us.visaphoto1tap.com/AppIcon.png" alt="" class="w-8 h-8 rounded-lg flex-shrink-0">
+                <img src="assets/icons/us.webp" alt="" class="w-8 h-8 rounded-lg flex-shrink-0" width="32" height="32" loading="lazy" decoding="async">
                 <span class="text-sm font-medium text-gray-800">US Visa Photo</span>
             </a>
             <a href="https://china.visaphoto1tap.com/" class="flex items-center gap-3 px-4 py-2.5 bg-gray-50">
-                <img src="https://china.visaphoto1tap.com/AppIcon.png" alt="" class="w-8 h-8 rounded-lg flex-shrink-0">
+                <img src="assets/icons/china.webp" alt="" class="w-8 h-8 rounded-lg flex-shrink-0" width="32" height="32" loading="lazy" decoding="async">
                 <span class="text-sm font-semibold text-gray-900">China Visa Photo</span>
-                <i data-lucide="check" class="w-4 h-4 text-emerald-500 ml-auto flex-shrink-0"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-emerald-500 ml-auto flex-shrink-0 lucide lucide-check" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"></path></svg>
             </a>
             <a href="https://schengen.visaphoto1tap.com/" class="flex items-center gap-3 px-4 py-2.5 hover:bg-gray-50 transition">
-                <img src="https://schengen.visaphoto1tap.com/AppIcon.png" alt="" class="w-8 h-8 rounded-lg flex-shrink-0">
+                <img src="assets/icons/schengen.webp" alt="" class="w-8 h-8 rounded-lg flex-shrink-0" width="32" height="32" loading="lazy" decoding="async">
                 <span class="text-sm font-medium text-gray-800">Schengen Visa Photo</span>
             </a>
             <a href="https://india.visaphoto1tap.com/" class="flex items-center gap-3 px-4 py-2.5 hover:bg-gray-50 transition">
-                <img src="https://india.visaphoto1tap.com/AppIcon.png" alt="" class="w-8 h-8 rounded-lg flex-shrink-0">
+                <img src="assets/icons/india.webp" alt="" class="w-8 h-8 rounded-lg flex-shrink-0" width="32" height="32" loading="lazy" decoding="async">
                 <span class="text-sm font-medium text-gray-800">India Visa Photo</span>
             </a>
             <a href="https://japan.visaphoto1tap.com/" class="flex items-center gap-3 px-4 py-2.5 hover:bg-gray-50 transition">
-                <img src="https://japan.visaphoto1tap.com/AppIcon.png" alt="" class="w-8 h-8 rounded-lg flex-shrink-0">
+                <img src="assets/icons/japan.webp" alt="" class="w-8 h-8 rounded-lg flex-shrink-0" width="32" height="32" loading="lazy" decoding="async">
                 <span class="text-sm font-medium text-gray-800">Japan Visa Photo</span>
             </a>
             <a href="https://canada.visaphoto1tap.com/" class="flex items-center gap-3 px-4 py-2.5 hover:bg-gray-50 transition">
-                <img src="https://canada.visaphoto1tap.com/AppIcon.png" alt="" class="w-8 h-8 rounded-lg flex-shrink-0">
+                <img src="assets/icons/canada.webp" alt="" class="w-8 h-8 rounded-lg flex-shrink-0" width="32" height="32" loading="lazy" decoding="async">
                 <span class="text-sm font-medium text-gray-800">Canada Visa Photo</span>
             </a>
             </div>
@@ -269,7 +252,7 @@
                 <!-- Copy -->
                 <div class="text-center md:text-left">
                 <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur rounded-full px-4 py-1.5 text-sm mb-8">
-                    <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-emerald-400 lucide lucide-shield-check" aria-hidden="true" focusable="false"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg>
                     <span class="text-gray-200">100% on-device — auto cutout &amp; export on your iPhone</span>
                 </div>
 
@@ -285,7 +268,7 @@
 
                 <div id="download" class="flex flex-col sm:flex-row items-center justify-center gap-4">
                     <a href="https://apps.apple.com/app/id6769270493" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-white text-navy px-8 py-3.5 rounded-xl font-semibold hover:bg-gray-100 transition text-base">
-                        <i data-lucide="download" class="w-5 h-5"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 lucide lucide-download" aria-hidden="true" focusable="false"><path d="M12 15V3"></path><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="m7 10 5 5 5-5"></path></svg>
                         Open in App Store
                     </a>
                     <span class="text-gray-400 text-sm">iOS 17+ &middot; iPhone</span>
@@ -298,19 +281,19 @@
                     <!-- Before: the app's own "Original" screen, full raw device screenshot -->
                     <figure class="hero-before">
                         <div class="hero-phone">
-                            <img src="appstore/before-original.png" width="1170" height="2532" decoding="async" alt="The China Visa Photo app showing the Original photo screen with a crop and remove background button">
+                            <img src="appstore/before-original.webp" width="1170" height="2532" decoding="async" alt="The China Visa Photo app showing the Original photo screen with a crop and remove background button">
                         </div>
                     </figure>
 
                     <!-- Arrow -->
                     <div class="hero-arrow" aria-hidden="true">
-                        <i data-lucide="arrow-right"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right" aria-hidden="true" focusable="false"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
                     </div>
 
                     <!-- After: the same person, in the app — background removed, cropped, auto-checked -->
                     <figure class="hero-after">
                         <div class="hero-phone">
-                            <img src="appstore/after-result.png" width="1170" height="2532" decoding="async" alt="The same photo in the China Visa Photo app: background removed, cropped, compliance checklist passed, marked Ready to use">
+                            <img src="appstore/after-result.webp" width="1170" height="2532" decoding="async" alt="The same photo in the China Visa Photo app: background removed, cropped, compliance checklist passed, marked Ready to use">
                         </div>
                     </figure>
                 </div>
@@ -321,19 +304,19 @@
     <section class="bg-gray-50 border-b border-gray-100">
         <div class="max-w-4xl mx-auto px-6 py-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-sm text-gray-500">
             <div class="flex items-center gap-2">
-                <i data-lucide="scissors" class="w-4 h-4 text-brand"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-brand lucide lucide-scissors" aria-hidden="true" focusable="false"><circle cx="6" cy="6" r="3"></circle><path d="M8.12 8.12 12 12"></path><path d="M20 4 8.12 15.88"></path><circle cx="6" cy="18" r="3"></circle><path d="M14.8 14.8 20 20"></path></svg>
                 <span>Automatic background removal</span>
             </div>
             <div class="flex items-center gap-2">
-                <i data-lucide="maximize-2" class="w-4 h-4 text-brand"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-brand lucide lucide-maximize-2" aria-hidden="true" focusable="false"><path d="M15 3h6v6"></path><path d="m21 3-7 7"></path><path d="m3 21 7-7"></path><path d="M9 21H3v-6"></path></svg>
                 <span>354–420 × 472–560 px window</span>
             </div>
             <div class="flex items-center gap-2">
-                <i data-lucide="cpu" class="w-4 h-4 text-brand"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-brand lucide lucide-cpu" aria-hidden="true" focusable="false"><path d="M12 20v2"></path><path d="M12 2v2"></path><path d="M17 20v2"></path><path d="M17 2v2"></path><path d="M2 12h2"></path><path d="M2 17h2"></path><path d="M2 7h2"></path><path d="M20 12h2"></path><path d="M20 17h2"></path><path d="M20 7h2"></path><path d="M7 20v2"></path><path d="M7 2v2"></path><rect x="4" y="4" width="16" height="16" rx="2"></rect><rect x="8" y="8" width="8" height="8" rx="1"></rect></svg>
                 <span>Apple Vision on-device</span>
             </div>
             <div class="flex items-center gap-2">
-                <i data-lucide="eye-off" class="w-4 h-4 text-brand"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-brand lucide lucide-eye-off" aria-hidden="true" focusable="false"><path d="M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49"></path><path d="M14.084 14.158a3 3 0 0 1-4.242-4.242"></path><path d="M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143"></path><path d="m2 2 20 20"></path></svg>
                 <span>No photo uploads to us</span>
             </div>
         </div>
@@ -347,12 +330,12 @@
             </div>
 
             <div class="demo-wall-row" aria-label="Result photo row">
-                <figure class="demo-wall-item"><img src="demos/demo-01-result.png" alt="China visa style result 1" class="demo-wall-img" width="420" height="560" decoding="async"></figure>
-                <figure class="demo-wall-item"><img src="demos/young-woman-result.png" alt="China visa result of a young woman with a ponytail" class="demo-wall-img" width="420" height="560" decoding="async"></figure>
-                <figure class="demo-wall-item"><img src="demos/demo-03-result.png" alt="China visa style result 3" class="demo-wall-img" width="420" height="560" decoding="async"></figure>
-                <figure class="demo-wall-item"><img src="demos/demo-04-result.png" alt="China visa style result 4" class="demo-wall-img" width="420" height="560" decoding="async"></figure>
-                <figure class="demo-wall-item"><img src="demos/demo-05-result.png" alt="China visa style result 5" class="demo-wall-img" width="420" height="560" decoding="async"></figure>
-                <figure class="demo-wall-item"><img src="demos/demo-06-result.png" alt="China visa style result 6" class="demo-wall-img" width="420" height="560" decoding="async"></figure>
+                <figure class="demo-wall-item"><img src="demos/demo-01-result.png" alt="China visa style result 1" class="demo-wall-img" width="420" height="560" decoding="async" loading="lazy"></figure>
+                <figure class="demo-wall-item"><img src="demos/young-woman-result.png" alt="China visa result of a young woman with a ponytail" class="demo-wall-img" width="420" height="560" decoding="async" loading="lazy"></figure>
+                <figure class="demo-wall-item"><img src="demos/demo-03-result.png" alt="China visa style result 3" class="demo-wall-img" width="420" height="560" decoding="async" loading="lazy"></figure>
+                <figure class="demo-wall-item"><img src="demos/demo-04-result.png" alt="China visa style result 4" class="demo-wall-img" width="420" height="560" decoding="async" loading="lazy"></figure>
+                <figure class="demo-wall-item"><img src="demos/demo-05-result.png" alt="China visa style result 5" class="demo-wall-img" width="420" height="560" decoding="async" loading="lazy"></figure>
+                <figure class="demo-wall-item"><img src="demos/demo-06-result.png" alt="China visa style result 6" class="demo-wall-img" width="420" height="560" decoding="async" loading="lazy"></figure>
             </div>
 
             <div class="mt-10 max-w-6xl mx-auto">
@@ -361,12 +344,12 @@
                     <p class="text-xs text-gray-400 hidden sm:block">Scroll &rarr;</p>
                 </div>
                 <div class="demo-film" aria-label="Original photo strip">
-                    <div class="demo-film-item--original"><div class="demo-film-original-wrap"><img src="demos/demo-01-original.png" alt="Original 1" class="demo-film-thumb-original" decoding="async"></div><div class="demo-film-label">Kitchen</div></div>
-                    <div class="demo-film-item--original"><div class="demo-film-original-wrap"><img src="demos/young-woman-original.png" alt="Young woman with a ponytail before processing" class="demo-film-thumb-original" decoding="async"></div><div class="demo-film-label">Home portrait</div></div>
-                    <div class="demo-film-item--original"><div class="demo-film-original-wrap"><img src="demos/demo-03-original.png" alt="Original 3" class="demo-film-thumb-original" decoding="async"></div><div class="demo-film-label">Patio</div></div>
-                    <div class="demo-film-item--original"><div class="demo-film-original-wrap"><img src="demos/demo-04-original.png" alt="Original 4" class="demo-film-thumb-original" decoding="async"></div><div class="demo-film-label">Outdoor corridor</div></div>
-                    <div class="demo-film-item--original"><div class="demo-film-original-wrap"><img src="demos/demo-05-original.png" alt="Original 5" class="demo-film-thumb-original" decoding="async"></div><div class="demo-film-label">Sidewalk</div></div>
-                    <div class="demo-film-item--original"><div class="demo-film-original-wrap"><img src="demos/demo-06-original.png" alt="Original 6" class="demo-film-thumb-original" decoding="async"></div><div class="demo-film-label">Living room</div></div>
+                    <div class="demo-film-item--original"><div class="demo-film-original-wrap"><img src="demos/demo-01-original.webp" alt="Original 1" class="demo-film-thumb-original" decoding="async" width="1536" height="1024" loading="lazy"></div><div class="demo-film-label">Kitchen</div></div>
+                    <div class="demo-film-item--original"><div class="demo-film-original-wrap"><img src="demos/young-woman-original.webp" alt="Young woman with a ponytail before processing" class="demo-film-thumb-original" decoding="async" width="1536" height="1024" loading="lazy"></div><div class="demo-film-label">Home portrait</div></div>
+                    <div class="demo-film-item--original"><div class="demo-film-original-wrap"><img src="demos/demo-03-original.webp" alt="Original 3" class="demo-film-thumb-original" decoding="async" width="1536" height="1024" loading="lazy"></div><div class="demo-film-label">Patio</div></div>
+                    <div class="demo-film-item--original"><div class="demo-film-original-wrap"><img src="demos/demo-04-original.webp" alt="Original 4" class="demo-film-thumb-original" decoding="async" width="1536" height="1024" loading="lazy"></div><div class="demo-film-label">Outdoor corridor</div></div>
+                    <div class="demo-film-item--original"><div class="demo-film-original-wrap"><img src="demos/demo-05-original.webp" alt="Original 5" class="demo-film-thumb-original" decoding="async" width="1536" height="1024" loading="lazy"></div><div class="demo-film-label">Sidewalk</div></div>
+                    <div class="demo-film-item--original"><div class="demo-film-original-wrap"><img src="demos/demo-06-original.png" alt="Original 6" class="demo-film-thumb-original" decoding="async" width="1024" height="682" loading="lazy"></div><div class="demo-film-label">Living room</div></div>
                 </div>
             </div>
 
@@ -379,9 +362,9 @@
             <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-gray-900 mb-3">A closer look, without the full tour.</h2>
             <p class="text-gray-500 text-sm md:text-base max-w-2xl mx-auto mb-10">Three real App Store screens show the checks, lighting check, and saved exports behind your result.</p>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-10 justify-items-center max-w-4xl mx-auto">
-                <img src="appstore/inside-app-checklist.png" alt="China Visa Photo App Store screen showing the digital export checklist before unlock" class="rounded-[1.5rem] shadow-2xl w-full max-w-[260px] h-auto" width="1284" height="2778" loading="lazy" decoding="async">
-                <img src="appstore/inside-app-lighting.png" alt="China Visa Photo App Store screen showing the lighting check before export" class="rounded-[1.5rem] shadow-2xl w-full max-w-[260px] h-auto" width="1284" height="2778" loading="lazy" decoding="async">
-                <img src="appstore/inside-app-saved.png" alt="China Visa Photo App Store screen showing Saved Photos on this iPhone" class="rounded-[1.5rem] shadow-2xl w-full max-w-[260px] h-auto" width="1284" height="2778" loading="lazy" decoding="async">
+                <img src="appstore/inside-app-checklist.webp" alt="China Visa Photo App Store screen showing the digital export checklist before unlock" class="rounded-[1.5rem] shadow-2xl w-full max-w-[260px] h-auto" width="1284" height="2778" loading="lazy" decoding="async">
+                <img src="appstore/inside-app-lighting.webp" alt="China Visa Photo App Store screen showing the lighting check before export" class="rounded-[1.5rem] shadow-2xl w-full max-w-[260px] h-auto" width="1284" height="2778" loading="lazy" decoding="async">
+                <img src="appstore/inside-app-saved.webp" alt="China Visa Photo App Store screen showing Saved Photos on this iPhone" class="rounded-[1.5rem] shadow-2xl w-full max-w-[260px] h-auto" width="1284" height="2778" loading="lazy" decoding="async">
             </div>
         </div>
     </section>
@@ -395,31 +378,31 @@
             <div class="bg-gray-50 rounded-2xl border border-gray-100 p-6 md:p-8">
                 <ul class="space-y-4 text-left text-sm md:text-base text-gray-800">
                     <li class="compliance-row flex items-start gap-3">
-                        <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5 lucide lucide-check-circle-2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"></circle><path d="m16 9-5.5 5.5L8 12"></path></svg>
                         <span><strong>Digital canvas window</strong> &mdash; export within the commonly cited <strong>354–420 × 472–560 px</strong> range; we default to the <strong>largest</strong> allowed <strong>420×560</strong> for clarity.</span>
                     </li>
                     <li class="compliance-row flex items-start gap-3">
-                        <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5 lucide lucide-check-circle-2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"></circle><path d="m16 9-5.5 5.5L8 12"></path></svg>
                         <span><strong>JPEG size policy</strong> &mdash; many online flows ask for <strong>40–120 kB</strong> (24-bit RGB); the app encodes toward that checklist policy.</span>
                     </li>
                     <li class="compliance-row flex items-start gap-3">
-                        <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5 lucide lucide-check-circle-2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"></circle><path d="m16 9-5.5 5.5L8 12"></path></svg>
                         <span><strong>Eye height from bottom</strong> &mdash; measured against the 354×472 reference (e.g. eyes <strong>≥256 px</strong> from bottom at that height).</span>
                     </li>
                     <li class="compliance-row flex items-start gap-3">
-                        <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5 lucide lucide-check-circle-2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"></circle><path d="m16 9-5.5 5.5L8 12"></path></svg>
                         <span><strong>Head &amp; face width</strong> &mdash; head height and face width bands shown with live readouts on the schematic.</span>
                     </li>
                     <li class="compliance-row flex items-start gap-3">
-                        <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5 lucide lucide-check-circle-2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"></circle><path d="m16 9-5.5 5.5L8 12"></path></svg>
                         <span><strong>White / near-white background</strong> &mdash; after automatic cutout.</span>
                     </li>
                     <li class="compliance-row flex items-start gap-3">
-                        <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5 lucide lucide-check-circle-2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"></circle><path d="m16 9-5.5 5.5L8 12"></path></svg>
                         <span><strong>Lighting</strong> &mdash; even light when shooting still helps; we don’t reshape facial geometry.</span>
                     </li>
                     <li class="compliance-row flex items-start gap-3">
-                        <i data-lucide="check-circle-2" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5 lucide lucide-check-circle-2" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"></circle><path d="m16 9-5.5 5.5L8 12"></path></svg>
                         <span><strong>Privacy</strong> &mdash; segmentation and matting run on your iPhone; no separate upload to our servers for processing.</span>
                     </li>
                 </ul>
@@ -438,7 +421,7 @@
             <div class="grid md:grid-cols-3 gap-8">
                 <div class="card-hover bg-white border border-gray-100 rounded-2xl p-8">
                     <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center mb-5">
-                        <i data-lucide="sparkles" class="w-6 h-6 text-brand"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-brand lucide lucide-sparkles" aria-hidden="true" focusable="false"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path><path d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle></svg>
                     </div>
                     <h3 class="text-lg font-semibold mb-2">Auto cutout &amp; white backdrop</h3>
                     <p class="text-gray-500 leading-relaxed">
@@ -447,7 +430,7 @@
                 </div>
                 <div class="card-hover bg-white border border-gray-100 rounded-2xl p-8">
                     <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center mb-5">
-                        <i data-lucide="scan-face" class="w-6 h-6 text-brand"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-brand lucide lucide-scan-face" aria-hidden="true" focusable="false"><path d="M3 7V5a2 2 0 0 1 2-2h2"></path><path d="M17 3h2a2 2 0 0 1 2 2v2"></path><path d="M21 17v2a2 2 0 0 1-2 2h-2"></path><path d="M7 21H5a2 2 0 0 1-2-2v-2"></path><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><path d="M9 9h.01"></path><path d="M15 9h.01"></path></svg>
                     </div>
                     <h3 class="text-lg font-semibold mb-2">China digital crop &amp; checklist</h3>
                     <p class="text-gray-500 leading-relaxed">
@@ -456,7 +439,7 @@
                 </div>
                 <div class="card-hover bg-white border border-gray-100 rounded-2xl p-8">
                     <div class="w-12 h-12 bg-red-50 rounded-xl flex items-center justify-center mb-5">
-                        <i data-lucide="lock" class="w-6 h-6 text-brand"></i>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-brand lucide lucide-lock" aria-hidden="true" focusable="false"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
                     </div>
                     <h3 class="text-lg font-semibold mb-2">On-device only</h3>
                     <p class="text-gray-500 leading-relaxed">
@@ -470,7 +453,7 @@
     <section id="languages" class="py-16 md:py-24 bg-white border-t border-gray-100">
         <div class="max-w-4xl mx-auto px-6 text-center">
             <div class="inline-flex items-center justify-center w-12 h-12 bg-red-50 rounded-xl mb-5">
-                <i data-lucide="languages" class="w-6 h-6 text-brand"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-brand lucide lucide-languages" aria-hidden="true" focusable="false"><path d="m5 8 6 6"></path><path d="m4 14 6-6 2-3"></path><path d="M2 5h12"></path><path d="M7 2h1"></path><path d="m22 22-5-10-5 10"></path><path d="M14 18h6"></path></svg>
             </div>
             <h2 class="text-2xl md:text-3xl font-bold tracking-tight mb-3">Same multilingual UI as US Visa Photo</h2>
             <p class="text-gray-500 text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
@@ -522,7 +505,7 @@
             <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
                 <div class="bg-brand text-white rounded-2xl p-8 shadow-xl shadow-brand/20">
                     <div class="flex items-center gap-3 mb-6">
-                        <img src="AppIcon.png" alt="" class="w-10 h-10 rounded-xl" width="1024" height="1024" decoding="async">
+                        <img src="assets/icons/china.webp" alt="" class="w-10 h-10 rounded-xl" width="160" height="160" decoding="async" loading="lazy">
                         <span class="font-semibold">China Visa Photo</span>
                     </div>
                     <div class="mb-6">
@@ -530,10 +513,10 @@
                         <span class="text-white/70 ml-1">/ export</span>
                     </div>
                     <ul class="space-y-3 text-sm text-white/90">
-                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 mt-0.5 text-white flex-shrink-0"></i>420×560 px export (within embassy window)</li>
-                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 mt-0.5 text-white flex-shrink-0"></i>Automatic cutout + white plate</li>
-                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 mt-0.5 text-white flex-shrink-0"></i>China digital checklist in-app</li>
-                        <li class="flex items-start gap-2"><i data-lucide="check" class="w-4 h-4 mt-0.5 text-white flex-shrink-0"></i>On-device processing</li>
+                        <li class="flex items-start gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mt-0.5 text-white flex-shrink-0 lucide lucide-check" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"></path></svg>420×560 px export (within embassy window)</li>
+                        <li class="flex items-start gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mt-0.5 text-white flex-shrink-0 lucide lucide-check" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"></path></svg>Automatic cutout + white plate</li>
+                        <li class="flex items-start gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mt-0.5 text-white flex-shrink-0 lucide lucide-check" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"></path></svg>China digital checklist in-app</li>
+                        <li class="flex items-start gap-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 mt-0.5 text-white flex-shrink-0 lucide lucide-check" aria-hidden="true" focusable="false"><path d="M20 6 9 17l-5-5"></path></svg>On-device processing</li>
                     </ul>
                 </div>
                 <div class="bg-white border border-gray-200 rounded-2xl p-8 flex flex-col justify-center">
@@ -561,12 +544,12 @@
 
     <section class="bg-gray-50 py-20 md:py-28">
         <div class="max-w-3xl mx-auto px-6 text-center">
-            <img src="AppIcon.png" alt="" class="w-20 h-20 rounded-[22px] mx-auto mb-8 shadow-lg" width="1024" height="1024" decoding="async">
+            <img src="assets/icons/china.webp" alt="" class="w-20 h-20 rounded-[22px] mx-auto mb-8 shadow-lg" width="160" height="160" decoding="async" loading="lazy">
             <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">Your China visa digital photo<br><span class="text-brand">starts on your phone.</span></h2>
             <p class="text-gray-500 text-lg mb-2">Download on the App Store — $1.99 per full-resolution export.</p>
             <p class="text-xs text-gray-400 mb-8">Price shown in USD on the U.S. App Store; exact storefront price may vary by region.</p>
             <a href="https://apps.apple.com/app/id6769270493" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-brand text-white px-8 py-4 rounded-xl font-semibold hover:bg-brand-dark transition text-base">
-                <i data-lucide="download" class="w-5 h-5"></i>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 lucide lucide-download" aria-hidden="true" focusable="false"><path d="M12 15V3"></path><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="m7 10 5 5 5-5"></path></svg>
                 Open in App Store
             </a>
         </div>
@@ -575,7 +558,7 @@
     <footer class="border-t border-gray-100 py-10">
         <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-400">
             <div class="flex items-center gap-3">
-                <img src="AppIcon.png" alt="" class="w-6 h-6 rounded-md" width="1024" height="1024" decoding="async">
+                <img src="assets/icons/china.webp" alt="" class="w-6 h-6 rounded-md" width="160" height="160" decoding="async" loading="lazy">
                 <span>&copy; 2026 China Visa Photo</span>
             </div>
             <div class="flex items-center gap-6">
@@ -607,6 +590,5 @@
             });
         })();
     </script>
-    <script>lucide.createIcons();</script>
 </body>
 </html>
