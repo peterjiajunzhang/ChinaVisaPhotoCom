@@ -49,3 +49,7 @@ The iPhone download buttons share the App Store Connect campaign `china-website-
 The guide at `/china-visa-photo-australia/` connects applicants to the official Sydney or Melbourne visa centre, explains the separate JPEG upload and glossy paper specifications, and covers the local paper fallback. Official sources were checked on 17 November 2026, including the [Chinese Embassy’s centre notice](https://au.china-embassy.gov.cn/eng/lsfw_12/vc/202509/t20250905_11702975.htm) and both centres’ own procedures and upload FAQs. The centres publish byte-identical English photo specifications.
 
 The App Store badge and desktop QR use the existing `china-website-20261117` campaign. The QR is a local static PNG generated from the full HTTPS link. Chrome checks at 320, 390, 768 and 1440 pixels verified homepage entry, guide anchors, layout and the badge destination. An independent QR decoder verified both the source PNG and the displayed desktop QR against the badge URL.
+
+### Applying from the United States
+
+The homepage links directly to the [U.S. application section of the China upload guide](https://visaphoto1tap.com/guides/china-visa-photo-upload-failed.html#apply-from-us). It lists the five U.S. consular districts by residence and links to the corresponding procedures and official online form. The existing Australia entry serves its own local procedure.
