@@ -4,7 +4,7 @@ Live site: **https://china.visaphoto1tap.com/**
 
 | Path | Purpose |
 |------|---------|
-| `index.html` | Landing; App Store CTA → `https://apps.apple.com/app/id6769270493` |
+| `index.html` | Landing with live iPhone App Store download |
 | `privacy.html` | Privacy policy (linked from App Store Connect) |
 | `sitemap.xml` / `robots.txt` | SEO |
 | `VisaPhotoApps/Marketing/China/xiaohongshu/` | Xiaohongshu post previews & export scripts |
@@ -35,3 +35,9 @@ The homepage and privacy policy no longer load Tailwind or Lucide at runtime. Th
 - **Icons**: Lucide icons are inline `<svg>` in `index.html`. Licence: `assets/licenses/lucide.txt` (ISC).
 - **App icons**: `assets/icons/*.webp` are resized copies of each app's `AppIcon.png`, the same files the US site uses; see `assets/icons/provenance.json`. `AppIcon.png` stays as the favicon and social image.
 - **Images**: PNG or JPG files over about 300 kB have a WebP copy next to them, and the page uses the WebP. The originals stay in the repo. Images below the fold use `loading="lazy"` and have their real `width`/`height`.
+
+## 2026-11-17 website update
+
+The homepage shows the published app’s 420×560 JPEG and links both to the online application troubleshooting guide and to the Chinese Embassy’s original instructions for applicants in its U.S. jurisdiction. The previous title called exports compliant. The linked guide and embassy instructions distinguish a measured file from the portal’s own checks.
+
+The iPhone download buttons share the App Store Connect campaign `china-website-20261117` with the matching Visa Photo 1-Tap links. The provider token is the one issued for this developer account. The structured app listing URL remains clean.
