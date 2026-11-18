@@ -6,6 +6,8 @@ Live site: **https://china.visaphoto1tap.com/**
 |------|---------|
 | `index.html` | Landing with live iPhone App Store download |
 | `privacy.html` | Privacy policy (linked from App Store Connect) |
+| `china-visa-photo-australia/` | English guide for ordinary-passport visa applicants lodging from Australia |
+| `BingSiteAuth.xml` | Bing Webmaster Tools ownership verification for the China website |
 | `sitemap.xml` / `robots.txt` | SEO |
 | `VisaPhotoApps/Marketing/China/xiaohongshu/` | Xiaohongshu post previews & export scripts |
 
@@ -41,3 +43,9 @@ The homepage and privacy policy no longer load Tailwind or Lucide at runtime. Th
 The homepage shows the published app’s 420×560 JPEG and links both to the online application troubleshooting guide and to the Chinese Embassy’s original instructions for applicants in its U.S. jurisdiction. The previous title called exports compliant. The linked guide and embassy instructions distinguish a measured file from the portal’s own checks.
 
 The iPhone download buttons share the App Store Connect campaign `china-website-20261117` with the matching Visa Photo 1-Tap links. The provider token is the one issued for this developer account. The structured app listing URL remains clean.
+
+## Applying from Australia
+
+The guide at `/china-visa-photo-australia/` connects applicants to the official Sydney or Melbourne visa centre, explains the separate JPEG upload and glossy paper specifications, and covers the local paper fallback. Official sources were checked on 17 November 2026, including the [Chinese Embassy’s centre notice](https://au.china-embassy.gov.cn/eng/lsfw_12/vc/202509/t20250905_11702975.htm) and both centres’ own procedures and upload FAQs. The centres publish byte-identical English photo specifications.
+
+The App Store badge and desktop QR use the existing `china-website-20261117` campaign. The QR is a local static PNG generated from the full HTTPS link. Chrome checks at 320, 390, 768 and 1440 pixels verified homepage entry, guide anchors, layout and the badge destination. An independent QR decoder verified both the source PNG and the displayed desktop QR against the badge URL.
